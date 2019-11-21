@@ -1,5 +1,12 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 html {
-  font-family: sans-serif;
+  font-family: "Monteserrat", sans-serif;
+  background-color: #edece8;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -200,7 +207,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: "Monteserrat", serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -619,4 +626,14 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+/*Hayden's CSS*/
+span > button:hover {
+  cursor: pointer;
+}
+
+span > button:active {
+  background-color: whitesmoke !important;
+  color: grey !important;
 }
