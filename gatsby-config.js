@@ -14,14 +14,14 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    /*`gatsby-transformer-yaml`,
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
         path: `${__dirname}/src/data`,
       },
-    },*/
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
