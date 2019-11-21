@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <meta name="theme-color" content="#fafafa" />
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Montserrat|Oranienbaum&display=swap');
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      html{
+        background: #edece8;
+
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      h1{
+        font-family:'Oranienbaum','serif';
+        font-size:3em;
+        padding-top:1.5rem;
+      }
+
+      h2{
+        display:flex;
+        align-items:center;
+        justify-content: center;
+      }
+
+      h2 > span{
+        flex:0 0 auto;
+        margin:0 .5rem;
+        
+
+      }
+
+      header,
+      main,
+      nav > ul  {
+        text-align: center;
+        margin:0 auto;
+      }
+      
+      ul {
+        display:flex;
+        align-items:center;
+        justify-content: space-around;
+        max-width:70%;
+        padding-top:1rem;
+        padding-bottom:.5rem;
+      }
+
+      nav > ul > li,a {
+        text-decoration: none;
+        display: inline;
+        flex:1 0 auto;
+        color:#8ac5c3;
+
+      }
+      #billboard{
+        position: relative;
+      }
+
+      .full_width_container{
+        width:100%;
+        position:absolute;
+        top:10%;
+        text-align: center;
+        margin-left:-10px;
+        
+      }
+
+      #billboard > img {
+        width: 100%;
+      }
+
+      #billboard button{
+        
+        background:transparent;
+        padding:1rem 2rem;
+
+        border:1px solid whitesmoke;
+        border-radius: 10px;
+
+        font-size:1.5rem;
+        color:whitesmoke;
+
+        
+      }
+
+      #billboard button:hover{
+        cursor:pointer;
+
+      }
+
+      #billboard button:focus{
+        outline:4px solid goldenrod;
+      }
+
+      #billboard button:active{
+        background-color: whitesmoke;
+        color:#888;
+        transform: translateY(2px);
+
+      }
+
+      footer{
+        text-align: center;
+        font-size:.4rem;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="happy_couple">CHLOE & HAYDEN</h1>
+      <h2>
+        <span id="wedding_date"> October 18th, 2020</span>
+        <span> • </span>
+        <span id="wedding_location"> Fripp Island, SC</span>
+      </h2>
+    </header>
+    <nav>
+      <ul>
+          <li><a href="/home">Home</a></li>
+        <li><a href="/story">Our Story</a></li>
+        <li><a href="/accomodations">Guest Accommodations</a></li>
+        <li><a href="/wedding_party">Co-conspirators</a></li>
+        <li><a href="/photos">Photos</a></li>
+        <li><a href="/registry">Registry (Buy us Shit!!!!)</a></li>
+  
+    </nav>
+    <main>
+      <section id="billboard">
+        <div class="full_width_container">
+        <button type="button">RSVP</button>
+      </div>
+        <img
+          src="./src/images/Hayden-83.jpg"
+          alt="Picture of the happy couple"
+        />
+        <div id="wedding_info"></div>
+      </section>
+    </main>
+    <footer>
+      <span>Created by Hayden Sykes &copy;2019</span>
+    </footer>
+  </body>
+</html>
