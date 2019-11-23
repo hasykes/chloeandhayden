@@ -33,7 +33,7 @@ const Photos = () => (
       `}
       render={data => (
         <Gallery
-          itemsPerRow={[2, 3]} // number of images per row on small vs large screens
+          itemsPerRow={3} // number of images per row
           images={data.allImagesYaml.edges.map(({ node }) => ({
             ...node.image.childImageSharp.fluid,
             caption: `${node.title} – ${node.author}`,
