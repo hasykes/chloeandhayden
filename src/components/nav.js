@@ -31,7 +31,7 @@ const Nav = () => (
     <span style={{ flex: `1 0 auto`, textAlign: `center` }}>
       <Link
         style={{ textDecoration: `none`, color: `rgb(0,0,0)` }}
-        to="/guest_accomodations/"
+        to="/accomodations/"
       >
         Guest Accommodations
       </Link>
@@ -39,7 +39,7 @@ const Nav = () => (
     <span style={{ flex: `1 0 auto`, textAlign: `center` }}>
       <Link
         style={{ textDecoration: `none`, color: `rgb(0,0,0)` }}
-        to="/our_story/"
+        to="/wedding_party/"
       >
         Wedding Party
       </Link>
