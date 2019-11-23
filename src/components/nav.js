@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 
 import React from "react"
 
-const Nav = () => (
+const Nav = ({ menuLinks }) => (
   <nav
     style={{
       display: `flex`,
@@ -15,51 +15,16 @@ const Nav = () => (
       margin: `0 auto`,
     }}
   >
-    <span style={{ flex: `1 0 auto`, textAlign: `center` }}>
-      <Link style={{ textDecoration: `none`, color: `rgb(0,0,0)` }} to="/">
-        Home
-      </Link>
-    </span>
-    <span style={{ flex: `1 0 auto`, textAlign: `center` }}>
-      <Link
-        style={{ textDecoration: `none`, color: `rgb(0,0,0)` }}
-        to="/our_story/"
-      >
-        Our Story
-      </Link>
-    </span>
-    <span style={{ flex: `1 0 auto`, textAlign: `center` }}>
-      <Link
-        style={{ textDecoration: `none`, color: `rgb(0,0,0)` }}
-        to="/accomodations/"
-      >
-        Guest Accommodations
-      </Link>
-    </span>
-    <span style={{ flex: `1 0 auto`, textAlign: `center` }}>
-      <Link
-        style={{ textDecoration: `none`, color: `rgb(0,0,0)` }}
-        to="/wedding_party/"
-      >
-        Wedding Party
-      </Link>
-    </span>
-    <span style={{ flex: `1 0 auto`, textAlign: `center` }}>
-      <Link
-        style={{ textDecoration: `none`, color: `rgb(0,0,0)` }}
-        to="/photos/"
-      >
-        Photos
-      </Link>
-    </span>
-    <span style={{ flex: `1 0 auto`, textAlign: `center` }}>
-      <Link
-        style={{ textDecoration: `none`, color: `rgb(0,0,0)` }}
-        to="/registry/"
-      >
-        Registry
-      </Link>
-    </span>
+    {menuLinks.map(link => (
+      <span key={link.name} style={{ flex: `1 0 auto`, textAlign: `center` }}>
+        <Link
+          style={{ textDecoration: `none`, color: `rgb(0,0,0)` }}
+          to={link.link}
+        >
+          {link.name}
+        </Link>
+      </span>
+    ))}
   </nav>
 )
 

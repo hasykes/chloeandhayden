@@ -3,6 +3,14 @@ module.exports = {
     title: `Chloe and Hayden`,
     description: `Chloe and Hayden are Syked!.`,
     author: `@haydensykes`,
+    menuLinks: [
+      { name: "Home", link: "/" },
+      { name: "Our Story", link: "/our_story/" },
+      { name: "Accomodations", link: "/accomodations/" },
+      { name: "Wedding Party", link: "/wedding_party/" },
+      { name: "Photos", link: "/photos/" },
+      { name: "Registry", link: "/registry/" },
+    ],
   },
   plugins: [
     {
