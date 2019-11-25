@@ -1,43 +1,93 @@
 import { Link } from "gatsby"
-
+import styled from "styled-components"
 import React from "react"
+import Burger from "./burger"
 
-const Nav = ({ menuLinks }) => (
-  <nav
-    style={{
-      display: `flex`,
-      alignItems: `center`,
-      justifyContent: `space-around`,
-      maxWidth: 900,
-      paddingTop: `0`,
-      paddingBottom: `.5em`,
-      width: `100%`,
-      margin: `0 auto`,
-    }}
-  >
-    {menuLinks.map(link => (
-      <span key={link.name} style={{ flex: `1 0 auto`, textAlign: `center` }}>
-        <Link
-          style={{ textDecoration: `none`, color: `rgb(0,0,0)` }}
-          to={link.link}
-        >
-          {link.name}
-        </Link>
-      </span>
-    ))}
-  </nav>
-)
+const StyledNav = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 900px;
+  padding-top: 0;
+  padding-bottom: 0.5em;
+  margin: 0 auto;
+
+  ${props => {
+    return `@media (max-width: ${props.theme.devices.tablet}px){
+      flex-direction:column;
+    }`
+  }}
+`
+
+const StyledLink = styled(props => <Link {...props} />)`
+  text-decoration: none;
+  color: ${props => props.theme.primaryDark};
+`
+
+const StyledSpan = styled.span`
+  flex: 1 0 auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  ${props => {
+    if (props.open) {
+      return `display:inline-block;`
+    }
+    return `@media (max-width: ${props.theme.devices.tablet}px){
+      display:none;
+    }`
+  }}
+`
+
+class Nav extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      open: false,
+      visible: false,
+    }
+  }
+
+  setOpen() {
+    this.setState({ open: !this.state.open })
+  }
+
+  handleWindowResize = () => {
+    if (window.innerWidth <= this.props.theme.devices.tablet) {
+      this.setState({ visible: true })
+    } else {
+      this.setState({ visible: false })
+    }
+  }
+
+  //Add event listener
+  componentDidMount = () => {
+    this.handleWindowResize()
+    window.addEventListener("resize", this.handleWindowResize.bind(this))
+  }
+
+  //Remove event listener
+  componentWillUnmount = () => {
+    window.removeEventListener("resize", this.handleWindowResize.bind(this))
+  }
+
+  render() {
+    return (
+      <StyledNav>
+        <Burger
+          open={this.state.open}
+          setOpen={this.setOpen.bind(this)}
+          visible={this.state.visible}
+        />
+        {this.props.menuLinks.map(link => (
+          <StyledSpan key={link.name} open={this.state.open}>
+            <StyledLink to={link.link}>{link.name}</StyledLink>
+          </StyledSpan>
+        ))}
+      </StyledNav>
+    )
+  }
+}
 
 export default Nav
-
-/*
-
-<div style={{ textAlign: `center` }}>
-      <span style={{ padding: `0 1rem 0 0` }}>Home</span>
-      <span style={{ padding: `0 1rem 0 0` }}>Our Story</span>
-      <span style={{ padding: `0 1rem 0 0` }}>Guest Accommodations</span>
-      <span style={{ padding: `0 1rem 0 0` }}>Wedding Party</span>
-      <span style={{ padding: `0 1rem 0 0` }}>Photos</span>
-      <span style={{ padding: `0 1rem 0 0` }}>Registry</span>
-    </div>
-*/
