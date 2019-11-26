@@ -28,7 +28,7 @@ const Footer = styled.footer`
   text-align: center;
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, breakpoint }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -47,7 +47,11 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <Nav menuLinks={data.site.siteMetadata.menuLinks} theme={theme} />
+        <Nav
+          menuLinks={data.site.siteMetadata.menuLinks}
+          theme={theme}
+          breakpoint={breakpoint}
+        />
         <ContentWrapper>
           <main>{children}</main>
           <Footer>

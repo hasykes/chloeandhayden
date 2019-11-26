@@ -45,20 +45,14 @@ class Nav extends React.Component {
 
     this.state = {
       open: false,
-      visible: false,
+      visible: this.props.breakpoint === "tablet" ? true : false,
     }
-  }
-
-  setOpen() {
-    this.setState({ open: !this.state.open })
   }
 
   handleWindowResize = () => {
-    if (window.innerWidth <= this.props.theme.devices.tablet) {
-      this.setState({ visible: true })
-    } else {
-      this.setState({ visible: false })
-    }
+    window.innerWidth <= this.props.theme.devices.tablet
+      ? this.setState({ visible: true })
+      : this.setState({ visible: false })
   }
 
   //Add event listener
@@ -70,6 +64,10 @@ class Nav extends React.Component {
   //Remove event listener
   componentWillUnmount = () => {
     window.removeEventListener("resize", this.handleWindowResize.bind(this))
+  }
+
+  setOpen() {
+    this.setState({ open: !this.state.open })
   }
 
   render() {
