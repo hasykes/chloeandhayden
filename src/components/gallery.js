@@ -10,6 +10,7 @@ const Gallery = ({ images, itemsPerRow }) => {
   const rowAspectRatioSums = chunk(aspectRatios, itemsPerRow).map(
     rowAspectRatios => {
       // Sum aspect ratios of images in the given row
+
       return sum(rowAspectRatios)
     }
   )
