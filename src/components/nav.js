@@ -46,6 +46,7 @@ class Nav extends React.Component {
     this.state = {
       open: false,
       visible: this.props.breakpoint === "tablet" ? true : false,
+      activeLink: "home",
     }
   }
 
@@ -80,7 +81,12 @@ class Nav extends React.Component {
         />
         {this.props.menuLinks.map(link => (
           <StyledSpan key={link.name} open={this.state.open}>
-            <StyledLink to={link.link}>{link.name}</StyledLink>
+            <StyledLink
+              activeStyle={{ color: "#96b60b", textDecoration: "underline" }}
+              to={link.link}
+            >
+              {link.name}
+            </StyledLink>
           </StyledSpan>
         ))}
       </StyledNav>

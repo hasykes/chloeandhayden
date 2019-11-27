@@ -14,6 +14,7 @@ import { theme } from "./theme"
 
 import Header from "./header"
 import Nav from "./nav"
+import BackgroundImage from "./backgroundImage"
 import "./layout.css"
 
 const ContentWrapper = styled.div`
@@ -47,6 +48,7 @@ const Layout = ({ children, breakpoint }) => {
     <ThemeProvider theme={theme}>
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
+
         <Nav
           menuLinks={data.site.siteMetadata.menuLinks}
           theme={theme}

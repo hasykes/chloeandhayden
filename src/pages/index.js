@@ -1,9 +1,9 @@
 import React from "react"
-
+import { navigate } from "gatsby"
 import Layout from "../components/layout"
 import BillboardImage from "../components/billboardImage"
 import SEO from "../components/seo"
-
+import styled from "styled-components"
 import { theme } from "../components/theme"
 
 class IndexPage extends React.Component {
@@ -64,7 +64,9 @@ class IndexPage extends React.Component {
                 color: `whitesmoke`,
                 borderColor: `whitesmoke`,
                 fontWeight: `bold`,
+                display: `inline-block`,
               }}
+              onClick={() => navigate("/rsvp")}
             >
               RSVP
             </button>
