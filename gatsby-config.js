@@ -11,6 +11,15 @@ module.exports = {
       { name: "Photos", link: "/photos/" },
       { name: "Registry", link: "/registry/" },
     ],
+    weddingInfo: {
+      date: "November 99th, 2045", //Format ex: October 18th, 2019
+      geoLocation: "Peachtree Corners, GA", //ex: Atlanta, GA
+      venue: "Chick-Fil-A", //Fripp Plantation
+      venueLink: "https://www.chick-fil-a.com/Locations/GA/Peachtree-Corners",
+      gmapsLink:
+        "https://www.google.com/maps/dir//Chick-fil-A,+6105+Peachtree+Pkwy,+Norcross,+GA+30092/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x88f5a0e761da00d3:0x1428cd404026bee?sa=X&ved=0ahUKEwiNwsOD-4vmAhUNVd8KHfM4CBEQ48ADCDYwAA",
+      hashtag: "#SoSyked",
+    },
     weddingParty: [
       {
         name: "Person1",

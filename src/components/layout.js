@@ -39,15 +39,33 @@ const Layout = ({ children, breakpoint }) => {
             name
             link
           }
+          weddingInfo {
+            date
+            geoLocation
+            venue
+            venueLink
+            gmapsLink
+            hashtag
+          }
         }
       }
     }
   `)
 
+  const metaData = data.site.siteMetadata
+
   return (
     <ThemeProvider theme={theme}>
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header
+          siteTitle={metaData.title}
+          gmapsLink={metaData.weddingInfo.gmapsLink}
+          venueLink={metaData.weddingInfo.venueLink}
+          venue={metaData.weddingInfo.venue}
+          geoLocation={metaData.weddingInfo.geoLocation}
+          date={metaData.weddingInfo.date}
+          hashtag={metaData.weddingInfo.hashtag}
+        />
 
         <Nav
           menuLinks={data.site.siteMetadata.menuLinks}
