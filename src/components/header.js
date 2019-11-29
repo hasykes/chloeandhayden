@@ -25,6 +25,9 @@ const StyledH2 = styled.h2`
   ${props => {
     return `@media (max-width: ${props.theme.devices.tablet}px){
       flex-direction:column;
+      &:nth-child(2){
+        display:none;
+      }
     }`
   }}
 `
