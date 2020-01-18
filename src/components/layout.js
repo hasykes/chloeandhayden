@@ -14,11 +14,10 @@ import { theme } from "./theme"
 
 import Header from "./header"
 import Nav from "./nav"
-import headerImage from "../images/headerImage.png"
 import "./layout.css"
 
 const StyledHeader = styled(Header)`
-  background-image: url(${headerImage});
+
 `
 const ContentWrapper = styled.div`
   margin: 0 auto;
