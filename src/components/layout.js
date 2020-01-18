@@ -14,9 +14,12 @@ import { theme } from "./theme"
 
 import Header from "./header"
 import Nav from "./nav"
-import BackgroundImage from "./backgroundImage"
+import headerImage from "../images/headerImage.png"
 import "./layout.css"
 
+const StyledHeader = styled(Header)`
+  background-image: url(${headerImage});
+`
 const ContentWrapper = styled.div`
   margin: 0 auto;
   max-width: 80%;
@@ -57,7 +60,7 @@ const Layout = ({ children, breakpoint }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-        <Header
+        <StyledHeader
           siteTitle={metaData.title}
           gmapsLink={metaData.weddingInfo.gmapsLink}
           venueLink={metaData.weddingInfo.venueLink}
