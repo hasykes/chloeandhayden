@@ -17,7 +17,13 @@ import { theme } from "./theme"
 
 const DesktopBillboard = styled(Img)`
   display: inline-block;
+  position:absolute;
+
   width: 100%;
+  height: 100%;
+
+  right:-150px;
+
   @media (max-width: ${theme.devices.tablet}px) {
     display: none;
   }

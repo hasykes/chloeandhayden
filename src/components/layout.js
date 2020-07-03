@@ -14,6 +14,32 @@ import { theme } from "./theme"
 import "./layout.css"
 
 const ContentWrapper = styled.div`
+  position:relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+`
+
+const ModernBoxRight = styled.div`
+/* Polygon 1 */
+
+
+position: absolute;
+width: 100%;
+height: 100%;
+clip-path:polygon(100% 0%, 100% 100%, 30% 100%);
+background: #FAD3BF;
+`
+
+const ModernBoxLeft = styled.div`
+/* Polygon 1 */
+
+
+position: absolute;
+width: 100%;
+height: 100%;
+clip-path:polygon(0% 55%, 0% 100%, 30% 100%);
+background: #84A4B2;
 `
 
 const Layout = ({ children, breakpoint }) => {
@@ -45,7 +71,11 @@ const Layout = ({ children, breakpoint }) => {
     <ThemeProvider theme={theme}>
       <>
         <ContentWrapper>
+        <ModernBoxRight />
+        <ModernBoxLeft />
           <main>{children}</main>
+          
+         
         </ContentWrapper>
       </>
     </ThemeProvider>

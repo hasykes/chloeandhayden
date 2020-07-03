@@ -39,14 +39,8 @@ class IndexPage extends React.Component {
     return (
       <Layout breakpoint={this.state.breakpoint}>
         <SEO title="Home" />
-        <div
-          style={{
-            maxWidth: `100%`,
-            marginBottom: `1.45rem`,
-            position: `relative`,
-          }}
-        >
-          <BillboardImage style={{ margin: `0 auto` }} />
+        <div>
+          <BillboardImage />
         </div>
       </Layout>
     )
