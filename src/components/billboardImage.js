@@ -34,14 +34,14 @@ const MobileBillboard = styled(Img)`
 const BillboardImage = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "Hayden-83.jpg" }) {
+      placeholderImage: file(relativePath: { eq: "kissing_cutout.PNG" }) {
         childImageSharp {
           fluid(maxWidth: 1500) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      mobileImage: file(relativePath: { eq: "Hayden-74.jpg" }) {
+      mobileImage: file(relativePath: { eq: "kissing_cutout.PNG" }) {
         childImageSharp {
           fluid(maxWidth: 1500) {
             ...GatsbyImageSharpFluid

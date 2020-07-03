@@ -5,8 +5,8 @@
 }
 
 html {
-  font-family: "Monteserrat", sans-serif;
-  background-color: #b8d1e1;
+  font-family: "Flamenco", sans-serif;
+  background-color: #f1f5f6;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -73,7 +73,7 @@ h1 {
 }
 mark {
   background-color: #ff0;
-  color: #000;
+  color: #444;
 }
 small {
   font-size: 80%;
@@ -206,8 +206,8 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
-  font-family: "Monteserrat", serif;
+  color: #444;
+  font-family: "Flamenco", serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -597,7 +597,7 @@ td:last-child {
 }
 tt,
 code {
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: #444;
   border-radius: 3px;
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     "Liberation Mono", Menlo, Courier, monospace;
