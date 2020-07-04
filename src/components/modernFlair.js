@@ -35,9 +35,6 @@ const ModernFlair = (props) => {
         case 'left': 
             return <ModernBoxLeft />
             break;
-        case 'screensize':
-            return <div>{`x:${x},y:${y}`}</div>
-            break;
         default:
             return <></>
 

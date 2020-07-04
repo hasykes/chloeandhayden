@@ -54,6 +54,7 @@ class IndexPage extends React.Component {
           <ModerFlair flair="right" />
           <ModerFlair flair="left" />
           <Title />
+          <BillboardImage/>
         </ContentWrapper>
       </Layout>
     )
