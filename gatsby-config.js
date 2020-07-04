@@ -115,8 +115,8 @@ module.exports = {
         name: `Chloe and Hayden get Married`,
         short_name: `chloeandhayden`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#84A4B2`,
+        theme_color: `#84A4B2`,
         display: `standalone`,
         icon: `src/images/tab-icon.png`, // This path is relative to the root of the site.
       },
@@ -126,10 +126,7 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Montserrat`,
-          },
-          {
-            family: `Oranienbaum`,
+            family: `Flamenco`,
           },
         ],
       },

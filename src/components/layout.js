@@ -10,37 +10,9 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
 
+
 import { theme } from "./theme"
 import "./layout.css"
-
-const ContentWrapper = styled.div`
-  position:relative;
-  width:100vw;
-  height:100vh;
-  overflow:hidden;
-`
-
-const ModernBoxRight = styled.div`
-/* Polygon 1 */
-
-
-position: absolute;
-width: 100%;
-height: 100%;
-clip-path:polygon(100% 0%, 100% 100%, 30% 100%);
-background: #FAD3BF;
-`
-
-const ModernBoxLeft = styled.div`
-/* Polygon 1 */
-
-
-position: absolute;
-width: 100%;
-height: 100%;
-clip-path:polygon(0% 55%, 0% 100%, 30% 100%);
-background: #84A4B2;
-`
 
 const Layout = ({ children, breakpoint }) => {
   const data = useStaticQuery(graphql`
@@ -70,20 +42,10 @@ const Layout = ({ children, breakpoint }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-        <ContentWrapper>
-        <ModernBoxRight />
-        <ModernBoxLeft />
-          <main>{children}</main>
-          
-         
-        </ContentWrapper>
+          <main>{children}</main> 
       </>
     </ThemeProvider>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

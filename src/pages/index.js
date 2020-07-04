@@ -2,9 +2,20 @@ import React from "react"
 import { navigate } from "gatsby"
 import Layout from "../components/layout"
 import BillboardImage from "../components/billboardImage"
+import ModerFlair from "../components/modernFlair"
+import Title from "../components/Title"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import { theme } from "../components/theme"
+
+const ContentWrapper = styled.div`
+  position:relative;
+  width:100vw;
+  height:100vh;
+  max-width:1680px;
+  max-height:1050px;
+  overflow:hidden;
+`
 
 class IndexPage extends React.Component {
   constructor() {
@@ -39,9 +50,11 @@ class IndexPage extends React.Component {
     return (
       <Layout breakpoint={this.state.breakpoint}>
         <SEO title="Home" />
-        <div>
-          <BillboardImage />
-        </div>
+        <ContentWrapper >
+          <ModerFlair flair="right" />
+          <ModerFlair flair="left" />
+          <Title />
+        </ContentWrapper>
       </Layout>
     )
   }

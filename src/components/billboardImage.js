@@ -17,13 +17,12 @@ import { theme } from "./theme"
 
 const DesktopBillboard = styled(Img)`
   display: inline-block;
-  position:absolute;
-
+  position: fixed;
   width: 100%;
-  height: 100%;
-
-  right:-150px;
-
+  height: auto;
+  margin-left:10%;
+  bottom:0;
+  
   @media (max-width: ${theme.devices.tablet}px) {
     display: none;
   }
