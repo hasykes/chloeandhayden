@@ -34,6 +34,7 @@ background: #84A4B2;
     clip-path:polygon(0% 100%, 100% 100%, 100% 60%, 0% 30%);
     z-index:-1;
     
+    
   }
 `
 
@@ -49,7 +50,7 @@ background: #F0AE67;
 //!finish this
 /*Mobile Styles*/
 @media (max-width: ${theme.devices.tablet}px) {
-    clip-path:polygon(0% 100%, 100% 100%, 100% 60%, 0% 30%);
+    clip-path:polygon(20% 34.5%, 100% 7%, 100% 58%);
     z-index:-1;
     
   }
