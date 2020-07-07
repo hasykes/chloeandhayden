@@ -15,13 +15,31 @@ const TitleContainer = styled.div`
   } 
 `
 
+const MainHeader = styled.h1`
+  font-size:5em;
+
+  /*Mobile Styles*/
+  @media (max-width: ${theme.devices.tablet}px) {
+    font-size: 2.6em;
+  } 
+`
+const SubHead = styled.h2`
+  font-size:2em;
+
+  /*Mobile Styles*/
+  @media (max-width: ${theme.devices.tablet}px) {
+    font-size:1.3em;
+  } 
+  
+`
+
 const Title = () => (
   <TitleContainer>
-  <h1>
+  <MainHeader>
     Chloe And Hayden 
-  </h1>
-  <h2>March 27th, 2020</h2>
-  <h2>The Factory - Atlanta</h2>
+  </MainHeader>
+  <SubHead>March 27th, 2020</SubHead>
+  <SubHead>The Factory - Atlanta</SubHead>
   </TitleContainer>  
 )
 
