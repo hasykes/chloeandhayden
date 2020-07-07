@@ -19,8 +19,8 @@ const DesktopBillboard = styled(Img)`
   display: inline-block;
   position: absolute;
   width: 100%;
-  height: auto;
-  bottom:-1%;
+  height: 100%;
+  bottom:-4%;
   right:-10%;
 
   @media (max-width: ${theme.devices.tablet}px) {
@@ -30,9 +30,18 @@ const DesktopBillboard = styled(Img)`
 
 const MobileBillboard = styled(Img)`
   display: none;
-  width: 100%;
+
   @media (max-width: ${theme.devices.tablet}px) {
     display: inline-block;
+    position:absolute;
+
+    width: 100%;
+    height:auto;
+
+    bottom:-17%;
+    left:2%;
+  
+   
   }
 `
 
@@ -46,7 +55,7 @@ const BillboardImage = () => {
           }
         }
       }
-      mobileImage: file(relativePath: { eq: "kissing_cutout.PNG" }) {
+      mobileImage: file(relativePath: { eq: "CnHForwards.PNG" }) {
         childImageSharp {
           fluid(maxWidth: 1500) {
             ...GatsbyImageSharpFluid
@@ -60,11 +69,11 @@ const BillboardImage = () => {
     <>
       <DesktopBillboard
         fluid={data.placeholderImage.childImageSharp.fluid}
-        alt="Chloe and Hayden shortly after the proposal"
+        alt="Chloe and Hayden shortly after the proposal, celebrating with a kiss!"
       />
       <MobileBillboard
         fluid={data.mobileImage.childImageSharp.fluid}
-        alt="Chloe and Hayden shortly after the proposal"
+        alt="Chloe and Hayden shortly after the proposal posing for the camera"
       />
     </>
   )
