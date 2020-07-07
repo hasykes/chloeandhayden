@@ -105,8 +105,6 @@ const TopArrow = styled.div`
 `
 
 const ModernFlair = (props) => {
-    const x = window.screen.width
-    const y = window.screen.height
 
     switch(props.flair){
         case 'peach': 
