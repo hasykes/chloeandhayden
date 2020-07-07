@@ -2,9 +2,29 @@ import React from "react"
 import { navigate } from "gatsby"
 import Layout from "../components/layout"
 import BillboardImage from "../components/billboardImage"
+import ModernFlair from "../components/modernFlair"
+import Title from "../components/Title"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import { theme } from "../components/theme"
+
+const ContentWrapper = styled.div`
+  position:relative;
+  width:100vw;
+  height:100vh;
+  max-width:1680px;
+  max-height:1050px;
+  overflow:hidden;
+
+  /*Mobile Styles*/
+  @media (max-width: ${theme.devices.tablet}px) {
+      max-width:9999px;
+      max-height:9999px;
+
+      width:100vw;
+      height:100vh;
+    }
+`
 
 class IndexPage extends React.Component {
   constructor() {
@@ -38,44 +58,33 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout breakpoint={this.state.breakpoint}>
-        <SEO title="Home" />
-        <div
-          style={{
-            maxWidth: `100%`,
-            marginBottom: `1.45rem`,
-            position: `relative`,
-          }}
-        >
-          <span
-            style={{
-              width: `100%`,
-              position: `absolute`,
-              top: `10%`,
-              textAlign: `center`,
-              zIndex: `99`,
-            }}
-          >
-            <button
-              type="button"
-              style={{
-                padding: `1em 1.5em`,
-                backgroundColor: `transparent`,
-                borderRadius: `10px`,
-                color: `whitesmoke`,
-                borderColor: `whitesmoke`,
-                fontWeight: `bold`,
-                display: `inline-block`,
-              }}
-              onClick={() => navigate("/rsvp")}
-            >
-              RSVP
-            </button>
-          </span>
-          <BillboardImage style={{ margin: `0 auto` }} />
-        </div>
+        <ContentWrapper id="home" >
+          <ModernFlair flair="peach" />
+          <ModernFlair flair="blue" />
+          <ModernFlair flair="terra" />
+          <ModernFlair flair="botomArrow" />
+          <ModernFlair flair="middleArrow" />
+          <ModernFlair flair="topArrow" />
+          <Title />
+          <BillboardImage/>
+        </ContentWrapper>
+
       </Layout>
     )
   }
 }
 
 export default IndexPage
+
+//Stuff for later
+/*
+        <ContentWrapper id="about">
+          Here's some important stuff about the wedding
+        </ContentWrapper>
+        <ContentWrapper id="rsvp">
+          RSVP Please
+        </ContentWrapper>
+        <ContentWrapper id="weddingParty">
+          Look at these cool people
+        </ContentWrapper>
+*/
