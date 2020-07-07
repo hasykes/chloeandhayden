@@ -128,6 +128,9 @@ module.exports = {
           {
             family: `Flamenco`,
           },
+          {
+            family: `Montserrat`,
+          },
         ],
       },
     },
