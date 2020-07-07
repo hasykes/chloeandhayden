@@ -61,7 +61,8 @@ class IndexPage extends React.Component {
         <ContentWrapper id="home" >
           <ModernFlair flair="peach" />
           <ModernFlair flair="blue" />
-          <ModernFlair flair="bottomArrow" />
+          <ModernFlair flair="terra" />
+          <ModernFlair flair="botomArrow" />
           <ModernFlair flair="middleArrow" />
           <ModernFlair flair="topArrow" />
           <Title />

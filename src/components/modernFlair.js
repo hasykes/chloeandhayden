@@ -37,6 +37,24 @@ background: #84A4B2;
   }
 `
 
+const ModernBoxTerra = styled.div`
+/* Polygon 3 */
+
+position: absolute;
+width: 100%;
+height: 100%;
+clip-path:polygon(0% 0%, 98% 0%, 30% 98%,0% 53%);
+background: #F0AE67;
+
+//!finish this
+/*Mobile Styles*/
+@media (max-width: ${theme.devices.tablet}px) {
+    clip-path:polygon(0% 100%, 100% 100%, 100% 60%, 0% 30%);
+    z-index:-1;
+    
+  }
+`
+
 const BottomArrow = styled.div`
     position: absolute;
     width: 100%;
@@ -95,6 +113,9 @@ const ModernFlair = (props) => {
             break;
         case 'blue': 
             return <ModernBoxBlue />
+            break;
+        case 'terra': 
+            return <ModernBoxTerra />
             break;
         case 'bottomArrow':
             return <BottomArrow/>
