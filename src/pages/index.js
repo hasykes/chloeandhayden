@@ -11,9 +11,9 @@ const ContentWrapper = styled.div`
   position:relative;
   width:100vw;
   height:100vh;
-  max-width:1680px;
-  max-height:1050px;
+
   overflow:hidden;
+
 
   /*Mobile Styles*/
   @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
@@ -36,13 +36,15 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <ContentWrapper id="home" >
-          <ModernFlair flair="peach" />
-          <ModernFlair flair="blue" />
-          <ModernFlair flair="terra" />
+          <ModernFlair color="peach" type="bottom-right" zindex={0} />
+          <ModernFlair color="blue" type="bottom-left" zindex={0}/>
+          <ModernFlair color="terra" type="top-center" zindex={0}/>
           <Title />
           <BillboardImage/>
         </ContentWrapper>
-
+        <ContentWrapper id="about">
+          <ModernFlair color="terra" type="full" />
+        </ContentWrapper>
       </Layout>
     )
   }
