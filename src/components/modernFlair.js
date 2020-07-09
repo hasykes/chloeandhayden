@@ -13,7 +13,7 @@ clip-path:polygon(100% 0%, 100% 100%, 30% 100%);
 background: #FAD3BF;
 
 /*Mobile Styles*/
-@media (max-width: ${theme.devices.tablet}px) {
+@media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
     clip-path:polygon(0% 0%, 100% 0%, 100% 5%, 0% 40%);
     
   }
@@ -30,7 +30,7 @@ clip-path:polygon(0% 55%, 0% 100%, 30% 100%);
 background: #84A4B2;
 
 /*Mobile Styles*/
-@media (max-width: ${theme.devices.tablet}px) {
+@media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
     clip-path:polygon(0% 100%, 100% 100%, 100% 60%, 0% 30%);
     z-index:-1;
     
@@ -49,7 +49,7 @@ background: #F0AE67;
 
 //!finish this
 /*Mobile Styles*/
-@media (max-width: ${theme.devices.tablet}px) {
+@media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
     clip-path:polygon(20% 34.5%, 100% 7%, 100% 58%);
     z-index:-1;
     

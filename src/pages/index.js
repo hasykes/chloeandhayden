@@ -17,7 +17,7 @@ const ContentWrapper = styled.div`
   overflow:hidden;
 
   /*Mobile Styles*/
-  @media (max-width: ${theme.devices.tablet}px) {
+  @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
       max-width:9999px;
       max-height:9999px;
 

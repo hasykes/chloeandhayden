@@ -19,11 +19,11 @@ const DesktopBillboard = styled(Img)`
   display: inline-block;
   position: absolute;
   width: 100%;
-  height: 100%;
-  bottom:-4%;
+  height: auto;
+  bottom:0px;
   right:-10%;
 
-  @media (max-width: ${theme.devices.tablet}px) {
+  @media (max-width: ${theme.devices.tablet}px),(orientation: portrait) {
     display: none;
   }
 `
@@ -31,7 +31,7 @@ const DesktopBillboard = styled(Img)`
 const MobileBillboard = styled(Img)`
   display: none;
 
-  @media (max-width: ${theme.devices.tablet}px) {
+  @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
     display: inline-block;
     position:absolute;
 
