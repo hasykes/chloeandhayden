@@ -47,7 +47,6 @@ height: 100%;
 clip-path:polygon(0% 0%, 98% 0%, 30% 98%,0% 53%);
 background: #F0AE67;
 
-//!finish this
 /*Mobile Styles*/
 @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
     clip-path:polygon(20% 34.5%, 100% 7%, 100% 58%);
@@ -55,55 +54,6 @@ background: #F0AE67;
     
   }
 `
-
-const BottomArrow = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    clip-path:polygon(26.665% 94%, 30% 99%, 33.5% 94%);
-    background: #f0ae82;
-    
-    /*Animations*/
-    -moz-animation: bounce 2s infinite;
-    -webkit-animation: bounce 2s infinite;
-    animation: bounce 2s infinite;
-      
-    @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
-    }
-
-    /*Mobile Styles*/
-    @media (max-width: ${theme.devices.tablet}px) {
-        display: none;
-    }
-`
-
-const MiddleArrow = styled.div`
-    position: absolute;
-    display:none;
-    width: 100%;
-    height: 100%;
-    clip-path:polygon(25.33% 92%, 25.8% 93%, 34% 93%, 34.9% 92%);
-    background: #888;
-`
-
-const TopArrow = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    clip-path:polygon(24.66% 92%);
-    background: #888;
-    
-`
-
 const ModernFlair = (props) => {
 
     switch(props.flair){
@@ -115,15 +65,6 @@ const ModernFlair = (props) => {
             break;
         case 'terra': 
             return <ModernBoxTerra />
-            break;
-        case 'bottomArrow':
-            return <BottomArrow/>
-            break;
-        case 'middleArrow':
-            return <MiddleArrow/>
-            break;
-        case 'topArrow':
-            return <TopArrow/>
             break;
         default:
             return <></>

@@ -6,38 +6,13 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import styled, { ThemeProvider } from "styled-components"
+import { ThemeProvider } from "styled-components"
 
 
 import { theme } from "./theme"
 import "./layout.css"
 
-const Layout = ({ children, breakpoint }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-          menuLinks {
-            name
-            link
-          }
-          weddingInfo {
-            date
-            geoLocation
-            venue
-            venueLink
-            gmapsLink
-            hashtag
-          }
-        }
-      }
-    }
-  `)
-
-  const metaData = data.site.siteMetadata
+const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
