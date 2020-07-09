@@ -11,8 +11,6 @@ const ContentWrapper = styled.div`
   position:relative;
   width:100vw;
   height:100vh;
-  max-width:1680px;
-  max-height:1050px;
   overflow:hidden;
 
   /*Mobile Styles*/
