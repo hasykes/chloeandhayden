@@ -39,11 +39,12 @@ class IndexPage extends React.Component {
           <ModernFlair color='peach' type='bottom-right' mobileType='top' zindex={0} />
           <ModernFlair color='blue' type='bottom-left' mobileType='middle' zindex={-1}/>
           <ModernFlair color='terra' type='top-center' mobileType='bottom' zindex={0}/>
-          <Title page='billboard' />
+          <Title title='Chloe and Hayden' subheadOne='March 27, 2020' subheadTwo='The Factory - Atlanta' />
           <BillboardImage/>
         </ContentWrapper>
         <ContentWrapper id='about'>
-        <ModernFlair color='terra' type='' mobileType='' zindex={0}/>
+          <ModernFlair color='terra' type='' mobileType='' zindex={0}/>
+          <Title title='About'/>
         </ContentWrapper>
       </Layout>
     )

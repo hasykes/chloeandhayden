@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 import { theme } from "./theme"
+
 const TitleContainer = styled.div`
  position:absolute;
  width:60%;
@@ -42,14 +43,17 @@ const SubHead = styled.h2`
   
 `
 
-const Title = () => (
+
+const Title = (props) => {
+  
+return(
   <TitleContainer>
-  <MainHeader>
-    Chloe And Hayden 
-  </MainHeader>
-  <SubHead>March 27, 2020</SubHead>
-  <SubHead>The Factory - Atlanta</SubHead>
+    <MainHeader>{props.title}</MainHeader>
+    <SubHead>{props.subheadOne}</SubHead>
+    <SubHead>{props.subheadTwo}</SubHead>
   </TitleContainer>  
 )
+
+}
 
 export default Title
