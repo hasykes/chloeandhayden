@@ -1,11 +1,11 @@
-import React from "react"
-import Layout from "../components/layout"
-import BillboardImage from "../components/billboardImage"
-import ModernFlair from "../components/modernFlair"
-import Title from "../components/title"
-//import SEO from "../components/seo"
-import styled from "styled-components"
-import { theme } from "../components/theme"
+import React from 'react'
+import Layout from '../components/layout'
+import BillboardImage from '../components/billboardImage'
+import ModernFlair from '../components/modernFlair'
+import Title from '../components/title'
+//import SEO from '../components/seo'
+import styled from 'styled-components'
+import { theme } from '../components/theme'
 
 const ContentWrapper = styled.div`
   position:relative;
@@ -35,15 +35,15 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <ContentWrapper id="home" >
-          <ModernFlair color="peach" type="bottom-right" zindex={0} />
-          <ModernFlair color="blue" type="bottom-left" zindex={0}/>
-          <ModernFlair color="terra" type="top-center" zindex={0}/>
-          <Title />
+        <ContentWrapper id='home' >
+          <ModernFlair color='peach' type='bottom-right' mobileType='top' zindex={0} />
+          <ModernFlair color='blue' type='bottom-left' mobileType='middle' zindex={-1}/>
+          <ModernFlair color='terra' type='top-center' mobileType='bottom' zindex={0}/>
+          <Title page='billboard' />
           <BillboardImage/>
         </ContentWrapper>
-        <ContentWrapper id="about">
-          <ModernFlair color="terra" type="full" />
+        <ContentWrapper id='about'>
+        <ModernFlair color='terra' type='' mobileType='' zindex={0}/>
         </ContentWrapper>
       </Layout>
     )
@@ -54,13 +54,13 @@ export default IndexPage
 
 //Stuff for later
 /*
-        <ContentWrapper id="about">
+        <ContentWrapper id='about'>
           Here's some important stuff about the wedding
         </ContentWrapper>
-        <ContentWrapper id="rsvp">
+        <ContentWrapper id='rsvp'>
           RSVP Please
         </ContentWrapper>
-        <ContentWrapper id="weddingParty">
+        <ContentWrapper id='weddingParty'>
           Look at these cool people
         </ContentWrapper>
 */
