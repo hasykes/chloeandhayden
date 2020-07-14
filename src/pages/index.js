@@ -43,8 +43,16 @@ class IndexPage extends React.Component {
           <BillboardImage/>
         </ContentWrapper>
         <ContentWrapper id='about'>
-          <ModernFlair color='terra' type='' mobileType='' zindex={0}/>
-          <Title title='About'/>
+          <Title title='About' subPage={true} />
+        </ContentWrapper>
+        <ContentWrapper id='weddingParty'>
+          <Title title='Wedding Party' subPage={true} />
+        </ContentWrapper>
+        <ContentWrapper id='registry'>
+          <Title title='Registry' subPage={true} />
+        </ContentWrapper>
+        <ContentWrapper id='photos'>
+          <Title title='Photos' subPage={true} />
         </ContentWrapper>
       </Layout>
     )
