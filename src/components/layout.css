@@ -73,7 +73,7 @@ h1 {
 }
 mark {
   background-color: #ff0;
-  color: #444;
+  color: #f1f5f6;
 }
 small {
   font-size: 80%;
@@ -206,7 +206,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: #444;
+  color: #f1f5f6;
   font-family: "Flamenco", serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -391,7 +391,7 @@ p {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 0;
 }
 figure {
   margin-left: 0;
@@ -597,7 +597,7 @@ td:last-child {
 }
 tt,
 code {
-  background-color: #444;
+  background-color: #f1f5f6;
   border-radius: 3px;
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     "Liberation Mono", Menlo, Courier, monospace;

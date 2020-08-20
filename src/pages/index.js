@@ -2,6 +2,8 @@ import React from 'react'
 import Layout from '../components/layout'
 import BillboardImage from '../components/billboardImage'
 import ModernFlair from '../components/modernFlair'
+import CallToAction from '../components/callToAction'
+import SubPage from '../components/subPage'
 import Title from '../components/title'
 //import SEO from '../components/seo'
 import styled from 'styled-components'
@@ -39,11 +41,11 @@ class IndexPage extends React.Component {
           <ModernFlair color='peach' type='bottom-right' mobileType='top' zindex={0} />
           <ModernFlair color='blue' type='bottom-left' mobileType='middle' zindex={-1}/>
           <ModernFlair color='terra' type='top-center' mobileType='bottom' zindex={0}/>
-          <Title title='Chloe and Hayden' subheadOne='March 27, 2020' subheadTwo='The Factory - Atlanta' />
+          <Title title='Chloe and Hayden' /> 
           <BillboardImage/>
         </ContentWrapper>
         <ContentWrapper id='about'>
-          <Title title='About' subPage={true} />
+          <SubPage />
         </ContentWrapper>
         <ContentWrapper id='weddingParty'>
           <Title title='Wedding Party' subPage={true} />
@@ -60,6 +62,9 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage
+
+
+//subheadOne='March 27, 2020' subheadTwo='The Factory - Atlanta' 
 
 //Stuff for later
 /*
