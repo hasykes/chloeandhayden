@@ -61,7 +61,7 @@ return(
         <StyledP>Chamblee, GA 30341</StyledP>
         <StyledPtwo>Reception to follow.</StyledPtwo>
         <StyledP>
-            <RSVP href='https://chloeandhayden.com/rsvp'>RSVP</RSVP>
+            <RSVP href='/rsvp'>RSVP</RSVP>
         </StyledP>
         </Content>
     </SubPageContainer>
