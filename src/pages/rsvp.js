@@ -115,7 +115,7 @@ const Rsvp = () => {
       <SEO title="rsvp" />
       <Container>
         <MainHeader>RSVP</MainHeader>
-        <RsvpForm action="/thankyou">
+        <RsvpForm action="/thankyou" netlify name="rsvp">
         <p>Name<sup>*</sup></p>
           <StyledFieldSet>
             <FlexDiv>

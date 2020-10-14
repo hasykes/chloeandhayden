@@ -1,12 +1,21 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "./theme"
-import Title from "./title"
+import AboutSub from "./aboutSub"
+import RegistrySub from "./registrySub"
 
 const SubPageContainer = styled.div`
     width:82%;
     height:100%;
-    background-color:#F0AE67;
+    background-color:${ props => {
+            switch(props.content){
+                case 'about':
+                    return '#F0AE67'
+                case 'registry':
+                    return '#FAD3BF'
+            }   
+        }
+    };
+
     margin:3em auto;
 `
 
@@ -50,22 +59,25 @@ const RSVP = styled.a`
     display:inline-block;
 `
 
-const SubPage = (props) => {
-return(
-    <SubPageContainer>
-        <Content>
-        <Date>March 27th, 2021</Date>
-        <StyledP><StyledA href="https://www.factoryatlanta.events/">The Factory</StyledA></StyledP>
 
-        <StyledP>5616 New Peachtree Rd</StyledP>
-        <StyledP>Chamblee, GA 30341</StyledP>
-        <StyledPtwo>Reception to follow.</StyledPtwo>
-        <StyledP>
-            <RSVP href='/rsvp'>RSVP</RSVP>
-        </StyledP>
-        </Content>
-    </SubPageContainer>
-)
+const SubPage = (props) => {
+
+    const renderSwitch = (content) => {
+        switch(content){
+            case 'about':
+                return <AboutSub />
+            case 'registry':
+                return <RegistrySub />
+            default:
+                return 'TEST'
+        }
+    }
+
+    return(
+        <SubPageContainer content={props.content}>
+            {renderSwitch(props.content)}
+        </SubPageContainer>
+    )
 }
 
 export default SubPage;

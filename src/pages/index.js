@@ -44,17 +44,11 @@ class IndexPage extends React.Component {
           <Title title='Chloe and Hayden' /> 
           <BillboardImage/>
         </ContentWrapper>
-        <ContentWrapper id='about'>
-          <SubPage />
-        </ContentWrapper>
-        <ContentWrapper id='weddingParty'>
-          <Title title='Wedding Party' subPage={true} />
+        <ContentWrapper id='about' >
+          <SubPage content='about'/>
         </ContentWrapper>
         <ContentWrapper id='registry'>
-          <Title title='Registry' subPage={true} />
-        </ContentWrapper>
-        <ContentWrapper id='photos'>
-          <Title title='Photos' subPage={true} />
+          <SubPage content='registry'/>
         </ContentWrapper>
       </Layout>
     )
@@ -77,4 +71,18 @@ export default IndexPage
         <ContentWrapper id='weddingParty'>
           Look at these cool people
         </ContentWrapper>
+*/
+
+/*
+        <ContentWrapper id='weddingParty'>
+          <Title title='Wedding Party' subPage={true} />
+        </ContentWrapper>
+        <ContentWrapper id='registry'>
+          <Title title='Registry' subPage={true} />
+        </ContentWrapper>
+        <ContentWrapper id='photos'>
+          <Title title='Photos' subPage={true} />
+        </ContentWrapper>
+
+
 */

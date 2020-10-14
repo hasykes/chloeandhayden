@@ -5,10 +5,12 @@ import styled from "styled-components"
 import { theme } from "./theme"
 
 const TitleContainer = styled.div`
- position:absolute;
+position:${props => {
+  return props.subPage !== '' ? 'relative':'absolute'
+}};
  width:60%;
  margin:${props => {
-  return props.subPage ? '0 auto':'1em'
+  return props.subPage !== '' ? '1em':'0 auto'
 }};
 text-align:left;
  
@@ -51,7 +53,7 @@ const SubHead = styled.h2`
 const Title = (props) => {
 return(
   <TitleContainer>
-    <MainHeader subPage={props.subPage}>{props.title.split(' ').map(word => <p>{word}</p> )}</MainHeader>
+    <MainHeader subPage={props.subPage}>{props.title && props.title !== '' ? props.title.split(' ').map(word => <p>{word}</p>) : '' }</MainHeader>
     <SubHead>{props.subheadOne}</SubHead>
     <SubHead>{props.subheadTwo}</SubHead>
   </TitleContainer>  
