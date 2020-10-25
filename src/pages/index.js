@@ -4,6 +4,8 @@ import Layout from '../components/layout'
 import styled from 'styled-components'
 import { theme } from '../components/theme'
 
+import discoGIF from "../images/Discoball_.gif"
+
 const FlexContainer = styled.div`
   display:flex;
   justify-content:center;
@@ -59,10 +61,12 @@ const Date = styled.div`
 const DiscoBall = styled.img`
 
   position:absolute;
-  top:60%;
+  top:55%;
   left:50%;
   transform: translate(-50%, -50%);
   margin:0;
+
+  width:65%;
 
 `
 
@@ -149,6 +153,14 @@ const VertDivider = styled.div`
   margin:0 1em;
 `
 
+const NormalWords = styled.p`
+  color:${theme.primaryText};
+  font-size:1em;
+ font-variant:small-caps;
+ width:100%;
+ text-align:center;
+`
+
 class IndexPage extends React.Component {
   constructor() {
     super()
@@ -166,7 +178,7 @@ class IndexPage extends React.Component {
             <Header>Chloe & Hayden</Header>
             
               
-              <DiscoBall src="https://static.wixstatic.com/media/19e8d8_26a98e6e68534a9da800d6718b976381~mv2_d_3508_4961_s_4_2.png/v1/crop/x_181,y_152,w_3327,h_3922/fill/w_480,h_570,al_c,q_85,usm_0.66_1.00_0.01/light%20green%20disco.webp" alt="groovy disco ball" />
+              <DiscoBall src={discoGIF} alt="groovy disco ball" />
               
               <RsvpButton>RSVP</RsvpButton>
           </ContentWrapper>
@@ -176,10 +188,16 @@ class IndexPage extends React.Component {
           <ContentWrapper id='info' >
             <GridWrap>
             <LightBox order={2}>
-              
+            <NormalWords>The Factory</NormalWords>
+            <NormalWords>5616 New Peachtree Rd, Chamblee, GA 30341</NormalWords>
+            <NormalWords>5PM - Ceremoney</NormalWords>
+            <NormalWords>5:30PM - Cocktails</NormalWords>
+            <NormalWords>6PM - Reception</NormalWords>
             </LightBox>
             <LightBox order={3}>
-
+              <NormalWords>let us know if you're coming to celebrate</NormalWords>
+              <NormalWords>Chloe & Hayden</NormalWords>
+              <RegistryButton>RSVP</RegistryButton>
             </LightBox>
             <DarkBox order={1}>
               <BigWords>Details</BigWords>
