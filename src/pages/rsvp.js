@@ -7,7 +7,7 @@ import {theme} from "../components/theme"
 
 const Container = styled.div`
     max-width:82%;
-    background-color:#948804;
+    background-color:${theme.primaryText};
     margin:3em auto;
     padding-top:1em;
     padding-bottom:3em;
@@ -18,14 +18,14 @@ const Container = styled.div`
 const MainHeader = styled.h1`
   font-size:4em;
   font-family:"Montserrat" !important;
-  color:#f1f5f6;
+  color:${theme.secondaryAccent};
   font-weight:normal;
 
 
   /*Mobile Styles*/
   @media (max-width: ${theme.devices.tablet}px) {
     font-size: 2em;
-    color:#f1f5f6;
+    color:${theme.primaryBackground};
   
   } 
 `
@@ -33,6 +33,7 @@ const MainHeader = styled.h1`
 const RsvpForm = styled.form`
   margin:0 auto;
   max-width:80%;
+  color:${theme.secondaryAccent};
   
 `
 
@@ -63,6 +64,9 @@ const StyledInput = styled.input`
   border-radius:5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
+  
+
+
 
 
   
@@ -78,6 +82,9 @@ const StyledTextArea = styled.textarea`
   border-radius:5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border:none;
+  
+
+  
 `
 
 
@@ -86,24 +93,29 @@ const StyledLabel = styled.label`
   flex:1;
   font-style:italic;
   font-size:.8em;
+  color:${theme.secondaryAccent};
 `
 
 const RadioInput = styled.input`
 padding:10px;
 margin-left:1em;
+color:${theme.secondaryAccent};
+
 
 `
 
 const SubmitButton = styled.input`
   
-border: 1px solid #FFFFFF;
+border: none;
 
 border-radius: 10px;
-background-color:transparent;
-color:#FFF;
+background-color:${theme.primaryAccent};
+color:${theme.primaryBackground};
 
 margin-top:2em;
 padding:.5em;
+
+font-weight:bold;
 
 
 `
