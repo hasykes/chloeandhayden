@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/layout'
+//import Layout from '../components/layout'
 //import SEO from '../components/seo'
 import styled from 'styled-components'
 import { theme } from '../components/theme'
@@ -40,6 +40,11 @@ const Header = styled.h1`
 
   font-size:4em;
   font-variant:small-caps;
+
+  /*Mobile Styles*/
+  @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
+      margin-top:.1em;
+    }
 
   @media (max-width: ${theme.devices.mobileL}px){
     font-size:2.5em;
@@ -127,7 +132,7 @@ const DiscoBall = styled.img`
 
   /*Mobile Styles*/
 @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
-     top:55%;
+     top:50%;
      width:100%;
 }
 
@@ -163,7 +168,7 @@ const RsvpButton = styled.a`
     height:100px;
     font-size:1.5em;
     line-height:100px;
-    bottom:10px;
+    bottom:30px;
   }
 
   @media (max-width: ${theme.devices.mobileL}px){
@@ -185,11 +190,11 @@ const Landing = () => {
             
             <FlexContainer>
                 <ContentWrapper id='home' >
-                        <Header>Chloe & Hayden</Header>
-                        <Date>March 27, 2021</Date>    
-                        <Hashtag>#PsychedToBeSykes</Hashtag>        
-                        <DiscoBall src={discoGIF} alt="groovy disco ball" />
-                        <RsvpButton href="/">RSVP</RsvpButton>
+                    <Header>Chloe & Hayden</Header>
+                    <Date>March 27, 2021</Date>    
+                    <Hashtag>#PsychedToBeSykes</Hashtag>        
+                    <DiscoBall src={discoGIF} alt="groovy disco ball" />
+                    <RsvpButton href="/rsvp">RSVP</RsvpButton>
                 </ContentWrapper>
             </FlexContainer>
             
