@@ -194,7 +194,7 @@ const Landing = () => {
                         <Date>March 27, 2021</Date>    
                         <Hashtag>#PsychedToBeSykes</Hashtag>        
                         <DiscoBall src={discoGIF} alt="groovy disco ball" />
-                        <RsvpButton href="/">RSVP</RsvpButton>
+                        <RsvpButton href="/rsvp">RSVP</RsvpButton>
                 </ContentWrapper>
             </FlexContainer>
             
