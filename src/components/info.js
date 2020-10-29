@@ -58,6 +58,7 @@ const RegistryButton = styled.a`
   line-height:50px;
 
   border-radius: 10px;
+
 `
 const VertDivider = styled.div`
   height:5em;
@@ -72,22 +73,40 @@ const NormalWords = styled.p`
  font-variant:small-caps;
  width:100%;
  text-align:center;
+
+ padding:0;
+ margin:0;
+
+ flex:0 0 auto;
+`
+
+const PopTime = styled.span`
+    font-size:2.5em;
+    color:${theme.primaryAccent};
+    font-weight:bold;
+`
+
+const PopTime2 = styled.span`
+    font-size:1.5em;
+    color:${theme.primaryAccent};
+    font-weight:bold;
 `
 
 const Info = (props) => {
 return(
     <GridWrap>
         <LightBox order={2}>
-            <NormalWords>The Factory</NormalWords>
-            <NormalWords>5616 New Peachtree Rd, Chamblee, GA 30341</NormalWords>
-            <NormalWords>5PM - Ceremoney</NormalWords>
-            <NormalWords>5:30PM - Cocktails</NormalWords>
-            <NormalWords>6PM - Reception</NormalWords>
+            <NormalWords>The Factory<br/>5616 New Peachtree Rd, Chamblee, GA 30341</NormalWords>
+            
+            <NormalWords> <PopTime>5</PopTime><PopTime2>pm</PopTime2> Ceremoney</NormalWords>
+            <NormalWords><PopTime>5:30</PopTime><PopTime2>pm</PopTime2> Cocktails</NormalWords>
+            <NormalWords><PopTime>6</PopTime><PopTime2>pm</PopTime2> Reception</NormalWords>
         </LightBox>
         <LightBox order={3}>
-            <NormalWords>let us know if you're coming to celebrate</NormalWords>
-            <NormalWords>Chloe & Hayden</NormalWords>
-            <RegistryButton>RSVP</RegistryButton>
+            <NormalWords>let us know if you're coming to celebrate the union of</NormalWords>
+            <BigWords>Chloe & Hayden</BigWords>
+            
+            <RegistryButton href="/rsvp">RSVP</RegistryButton>
         </LightBox>
         <DarkBox order={1}>
             <BigWords>Details</BigWords>

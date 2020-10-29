@@ -49,7 +49,8 @@ const Header = styled.h1`
 
   width:100%; 
   text-align:center;
-  margin-top:.75em;
+  margin-top:.2em;
+  font-size:4em;
 `
 const Date = styled.div`
   position:fixed;
