@@ -28,11 +28,7 @@ const ContentWrapper = styled.div`
 
   /*Mobile Styles*/
   @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
-      max-width:9999px;
-      max-height:9999px;
-
       width:100vw;
-      height:100vh;
     }
 `
 
@@ -44,6 +40,10 @@ const Header = styled.h1`
 
   font-size:4em;
   font-variant:small-caps;
+
+  @media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+    font-size:2.5em;
+}
   
 `
 const Date = styled.div`
@@ -60,6 +60,24 @@ position:fixed;
 
   margin:0;
   z-index:999;
+
+  /*Mobile Styles*/
+  @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
+    position:relative;
+    transform:rotate(0deg);
+    top:0;
+    left:0;
+
+    width:100%;
+    text-align:center;
+    margin-bottom:.75em;
+    margin-top:.5em;
+    font-size:2.5em;
+}
+
+@media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+    font-size:2em;
+}
   
 `
 const Hashtag = styled.div`
@@ -79,6 +97,22 @@ font-variant:small-caps;
 margin:0;
 
 z-index:999;
+
+/*Mobile Styles*/
+@media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
+  position:relative;
+  transform:rotate(0deg);
+  top:0;
+  right:0;
+
+  width:100%;
+  text-align:center;
+  font-size:1.5em;
+}
+
+@media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+    font-size:1.25em;
+}
 `
 
 const DiscoBall = styled.img`
@@ -90,6 +124,15 @@ const DiscoBall = styled.img`
   margin:0;
 
   width:65%;
+
+  /*Mobile Styles*/
+@media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
+    width:100%;
+}
+
+@media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+    width:100%;
+}
 
 `
 
@@ -111,20 +154,39 @@ const RsvpButton = styled.a`
   line-height:50px;
 
   border-radius: 10px;
+
+  /*Mobile Styles*/
+  @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
+    width:150px;
+    height:100px;
+    font-size:1.5em;
+    line-height:100px;
+  }
+
+  @media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+    width:100%;
+    width:125px;
+    height:75px;
+    font-size:1.5em;
+    line-height:75px;
+}
+
 `
 
 const Landing = () => {
     return(
         <>
-            <Date>March 27, 2021</Date>
+            
             <FlexContainer>
                 <ContentWrapper id='home' >
-                        <Header>Chloe & Hayden</Header>            
+                        <Header>Chloe & Hayden</Header>
+                        <Date>March 27, 2021</Date>    
+                        <Hashtag>#PsychedToBeSykes</Hashtag>        
                         <DiscoBall src={discoGIF} alt="groovy disco ball" />
                         <RsvpButton href="/">RSVP</RsvpButton>
                 </ContentWrapper>
             </FlexContainer>
-            <Hashtag>#PsychedToBeSykes</Hashtag>
+            
         </>
     )
 }

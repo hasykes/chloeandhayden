@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { theme } from '../components/theme'
 import Landing from "../components/landing"
 
-
 class IndexPage extends React.Component {
   constructor() {
     super()
