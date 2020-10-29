@@ -22,7 +22,6 @@ const ContentWrapper = styled.div`
   background-color: ${theme.primaryBackground};
   color:${theme.primaryText};
   flex:0 1 auto;
-
   overflow:hidden;
 
   /*Mobile Styles*/
