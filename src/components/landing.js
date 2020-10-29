@@ -41,6 +41,11 @@ const Header = styled.h1`
   font-size:4em;
   font-variant:small-caps;
 
+  /*Mobile Styles*/
+  @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
+      margin-top:.1em;
+    }
+
   @media (max-width: ${theme.devices.mobileL}px){
     font-size:2.5em;
 }
@@ -127,7 +132,7 @@ const DiscoBall = styled.img`
 
   /*Mobile Styles*/
 @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
-     top:55%;
+     top:50%;
      width:100%;
 }
 
@@ -163,7 +168,7 @@ const RsvpButton = styled.a`
     height:100px;
     font-size:1.5em;
     line-height:100px;
-    bottom:10px;
+    bottom:30px;
   }
 
   @media (max-width: ${theme.devices.mobileL}px){
