@@ -131,6 +131,9 @@ module.exports = {
           {
             family: `Montserrat`,
           },
+          {
+            family: `Libre Baskerville`,
+          }
         ],
       },
     },

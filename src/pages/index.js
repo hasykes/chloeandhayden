@@ -17,11 +17,13 @@ const FlexContainer = styled.div`
 `
 const ContentWrapper = styled.div`
   position:relative;
-  width:90vw;
+  width:80vw;
   height:90vh;
-  background-color: ${theme.primaryBackground};
+  background-color: ${theme.primarybackground};
   color:${theme.primaryText};
   flex:0 1 auto;
+
+  max-width:1500px;
 
   overflow:hidden;
 
@@ -49,15 +51,44 @@ const Header = styled.h1`
   width:100%; 
   text-align:center;
   margin-top:.2em;
+
   font-size:4em;
+  font-variant:small-caps;
+  
 `
 const Date = styled.div`
-  position:fixed;
-  top:50%;
-  left:-25px;
+ 
+position:fixed;
+    top:50%;
+    left:0%;
+
   transform:rotate(-90deg);
   color:${theme.primaryText};
+
+  font-size:1.5em;
+  font-variant:small-caps;
+
+  margin:0;
+  z-index:999;
   
+`
+const Hashtag = styled.div`
+
+
+position:fixed;
+  top:50%;
+  right:-3%;
+
+
+transform:rotate(90deg);
+color:${theme.primaryText};
+
+font-size:1.5em;
+font-variant:small-caps;
+
+margin:0;
+
+z-index:999;
 `
 
 const DiscoBall = styled.img`
@@ -72,14 +103,7 @@ const DiscoBall = styled.img`
 
 `
 
-const Hashtag = styled.div`
 
-position:fixed;
-  top:50%;
-  right:-40px;
-transform:rotate(90deg);
-color:${theme.primaryText};
-`
 const RsvpButton = styled.a`
   position:absolute;
   bottom:-20px;
@@ -110,19 +134,19 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <FlexContainer>
         <Date>March 27, 2021</Date>
+        <FlexContainer>
+        
           <ContentWrapper id='home' >
-          
-            <Header>Chloe & Hayden</Header>
-            
               
-              <DiscoBall src={discoGIF} alt="groovy disco ball" />
+                <Header>Chloe & Hayden</Header>            
+                <DiscoBall src={discoGIF} alt="groovy disco ball" />
+                <RsvpButton href="/">RSVP</RsvpButton>
               
-              <RsvpButton href="/">RSVP</RsvpButton>
           </ContentWrapper>
-          <Hashtag>#PsychedToBeSykes</Hashtag>
+          
         </FlexContainer>
+        <Hashtag>#PsychedToBeSykes</Hashtag>
       </Layout>
     )
   }
