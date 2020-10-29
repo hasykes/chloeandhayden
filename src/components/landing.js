@@ -41,7 +41,7 @@ const Header = styled.h1`
   font-size:4em;
   font-variant:small-caps;
 
-  @media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+  @media (max-width: ${theme.devices.mobileL}px){
     font-size:2.5em;
 }
   
@@ -75,7 +75,7 @@ position:fixed;
     font-size:2.5em;
 }
 
-@media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+@media (max-width: ${theme.devices.mobileL}px){
     font-size:2em;
 }
   
@@ -110,7 +110,7 @@ z-index:999;
   font-size:1.5em;
 }
 
-@media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+@media (max-width: ${theme.devices.mobileL}px){
     font-size:1.25em;
 }
 `
@@ -127,10 +127,12 @@ const DiscoBall = styled.img`
 
   /*Mobile Styles*/
 @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
-    width:100%;
+     top:55%;
+     width:100%;
 }
 
-@media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+@media (max-width: ${theme.devices.mobileL}px){
+    top:45%;
     width:100%;
 }
 
@@ -161,15 +163,19 @@ const RsvpButton = styled.a`
     height:100px;
     font-size:1.5em;
     line-height:100px;
+    bottom:10px;
   }
 
-  @media (max-width: ${theme.devices.mobileL}px),(orientation: portrait)  {
+  @media (max-width: ${theme.devices.mobileL}px){
     width:100%;
     width:125px;
     height:75px;
     font-size:1.5em;
     line-height:75px;
+
+    bottom:75px;
 }
+
 
 `
 
