@@ -6,7 +6,6 @@ import { theme } from '../components/theme'
 
 import discoGIF from "../images/Discoball_.gif"
 
-import Info from "../components/info"
 
 const FlexContainer = styled.div`
   display:flex;
@@ -120,14 +119,9 @@ class IndexPage extends React.Component {
               
               <DiscoBall src={discoGIF} alt="groovy disco ball" />
               
-              <RsvpButton href="/rsvp">RSVP</RsvpButton>
+              <RsvpButton href="/">RSVP</RsvpButton>
           </ContentWrapper>
           <Hashtag>#PsychedToBeSykes</Hashtag>
-        </FlexContainer>
-        <FlexContainer>
-          <ContentWrapper id='info' >
-            <Info />
-          </ContentWrapper>
         </FlexContainer>
       </Layout>
     )
