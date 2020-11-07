@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 //import styled from 'styled-components'
 //import { theme } from '../components/theme'
 import Landing from "../components/landing"
+import Info from "../components/info"
 
 class IndexPage extends React.Component {
   constructor() {
@@ -16,7 +17,9 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <Landing />
+        <Info />
       </Layout>
+      
     )
   }
 }
