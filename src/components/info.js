@@ -99,6 +99,12 @@ const RegistryButton = styled.a`
   border-radius: 10px;
 
   font-variant:small-caps;
+  box-shadow:1px 2px ${theme.primaryText};
+
+  &:hover {
+      background-color:${theme.secondaryAccent};
+      box-shadow:0px 0px;
+  }
 `
 const VertDivider = styled.div`
   height:5em;

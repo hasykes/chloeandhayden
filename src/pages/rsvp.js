@@ -74,6 +74,13 @@ const RegistryButton = styled.a`
   text-align:center;
   line-height:50px;
   border-radius: 10px;
+
+  box-shadow:1px 2px ${theme.primaryText};
+
+  &:hover {
+      background-color:${theme.secondaryAccent};
+      box-shadow:0px 0px;
+  }
 `
 
 

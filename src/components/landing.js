@@ -162,6 +162,13 @@ const RsvpButton = styled.a`
 
   border-radius: 10px;
 
+  box-shadow:1px 2px ${theme.primaryText};
+
+  &:hover {
+      background-color:${theme.secondaryAccent};
+      box-shadow:0px 0px;
+  }
+
   /*Mobile Styles*/
   @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
     width:150px;
