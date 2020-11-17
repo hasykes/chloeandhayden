@@ -140,7 +140,6 @@ const BrushStroke = styled.img`
     position:absolute;
     top:38%;
     transform:rotate(12deg);
-
     
     /*Mobile Styles*/
 
