@@ -122,18 +122,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Flamenco`,
-          },
-          {
-            family: `Montserrat`,
-          },
-          {
-            family: `Libre Baskerville`,
-          }
+          `Flamenco`,
+          `Montserrat`,
+          `Libre Baskerville`
         ],
       },
     },
