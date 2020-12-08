@@ -69,6 +69,25 @@ const Box = styled.div`
     }
 `
 
+const InnerBox = styled.div`
+    height:${props => props.height};
+    display:flex;
+
+    position:relative;
+    background-color:transparent;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+
+    overflow:hidden;
+
+    
+    @media (max-width: ${theme.devices.tablet}px){
+        height:${props => props.mobileHeight};
+    }
+
+`
+
 const BigWords = styled.div`
     color:${theme.primaryText};
     font-size:3em;
@@ -150,33 +169,41 @@ const BrushStroke = styled.img`
 
 
 `
+
+
 const Info = (props) => {
 return(
     <FlexContainer>
         <ContentWrapper>   
             <GridWrap>
                 <Box order={1} color='dark' mobileColor="dark">
-                    <BigWords>Details</BigWords>
-                    <BrushStroke src={BrushStrokeSrc} />
+                        <BigWords>Details</BigWords>
+                        <BrushStroke src={BrushStrokeSrc} />
                 </Box>
                 <Box order={2} color='light' mobileColor="light">
+                    <InnerBox height='70%' mobileHeight='90%'>
                     <NormalWords>The Factory<br/>5616 New Peachtree Rd, Chamblee, GA 30341</NormalWords>
                     
                     <NormalWords> <PopTime>5</PopTime><PopTime2>pm</PopTime2> Ceremoney</NormalWords>
                     <NormalWords><PopTime>5:30</PopTime><PopTime2>pm</PopTime2> Cocktails</NormalWords>
                     <NormalWords><PopTime>6</PopTime><PopTime2>pm</PopTime2> Reception</NormalWords>
+                    </InnerBox>
                 </Box>
                 <Box order={3} color='light' mobileColor="dark">
+                    <InnerBox height='60%' mobileHeight='90%'>
                     <NormalWords>let us know if you're coming to celebrate the union of</NormalWords>
                     <BigWords smallMobile={true}>Chloe & Hayden</BigWords>
                     
                     <RegistryButton href="/rsvp">RSVP</RegistryButton>
+                    </InnerBox>
                 </Box>
                 <Box order={4} color='dark' mobileColor="light">
-                    <BigWords>Gift Registry</BigWords>
-                    <RegistryButton href="https://www.amazon.com/wedding/hayden-sykes-chloe-martin-atlanta-march-2021/registry/1DYIUJJSIZ90K">Amazon</RegistryButton>
-                    <VertDivider/>
-                    <RegistryButton href="https://www.zola.com/registry/haydenandchloe">Zola</RegistryButton>
+                    <InnerBox height="45%" mobileHeight='70%'>    
+                        <BigWords>Gift Registry</BigWords>
+                        <RegistryButton href="https://www.amazon.com/wedding/hayden-sykes-chloe-martin-atlanta-march-2021/registry/1DYIUJJSIZ90K">Amazon</RegistryButton>
+                        <VertDivider/>
+                        <RegistryButton href="https://www.zola.com/registry/haydenandchloe">Zola</RegistryButton>
+                    </InnerBox>
                 </Box>
             </GridWrap>  
         </ContentWrapper>
