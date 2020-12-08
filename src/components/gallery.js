@@ -2,6 +2,21 @@ import Img from "gatsby-image"
 import { chunk, sum } from "lodash"
 import React from "react"
 import { Box } from "rebass"
+import styled from "styled-components"
+import { theme } from "./theme"
+
+const StyledBox = styled(Box)`
+    display:inline-block;
+    width: ${props => props.width}%;
+
+    
+    /*Mobile Styles*/
+    @media (max-width: ${theme.devices.tablet}px) {
+        width:100%;
+
+    }
+
+`
 
 const Gallery = ({ images, itemsPerRow }) => {
   const aspectRatios = images.map(image => image.aspectRatio)
@@ -30,15 +45,12 @@ const Gallery = ({ images, itemsPerRow }) => {
   return (
     <div>
       {images.map((image, i) => (
-        <Box
+        <StyledBox
           key={image.src + i} //!using i because src is repetivite for testing
           as={Img}
           fluid={image}
           title={image.caption}
-          style={{
-            width: `${(image.aspectRatio / image.aspectRatioSum) * 100}%`, //!currently defaulting to 3 per row
-          }}
-          css={{ display: "inline-block" }}
+          width= {(image.aspectRatio / image.aspectRatioSum) * 100} //!currently defaulting to 3 per row
         />
       ))}
     </div>
