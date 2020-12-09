@@ -98,7 +98,7 @@ const Photos = () => (
       <Header>Photo Gallery</Header>
       <CenterP>These are some of our favorite photos! If you have any you'd like to add, <EmailLink href='mailto:haydensykes13+wedding@gmail.com?subject=Favorite Pics of Hayden and Chloe'>send us an email.</EmailLink></CenterP>
       <FlexP>
-      <HomeButton>Home</HomeButton>  
+      <HomeButton href="/">Home</HomeButton>  
     </FlexP>
     <StaticQuery
       query={graphql`
@@ -133,7 +133,7 @@ const Photos = () => (
       )}
     />
     <FlexP>
-      <HomeButton>Home</HomeButton>  
+      <HomeButton href="/">Home</HomeButton>  
     </FlexP>
     </ContentWrapper>
   </Layout>
