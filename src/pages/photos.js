@@ -8,7 +8,7 @@ import { graphql, StaticQuery } from "gatsby"
 
 const Photos = () => (
   <Layout>
-    <SEO title="Our Story" />
+    <SEO title="Photos" />
     <StaticQuery
       query={graphql`
         {
