@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { theme } from "./theme"
 
 import BrushStrokeSrc from "../images/brushStroke.png"
+import { siteMetadata } from "../../gatsby-config"
 
 const FlexContainer = styled.div`
   display:flex;
@@ -104,6 +105,13 @@ const BigWords = styled.div`
     }
   
 `
+const VenueLink = styled.a`
+  color:${theme.primaryText};
+  text-decoration:underline;
+  &:hover {
+    cursor:pointer;
+}
+`
 
 const RegistryButton = styled.a`
   width:100px;
@@ -182,7 +190,7 @@ return(
                 </Box>
                 <Box order={2} color='light' mobileColor="light">
                     <InnerBox height='70%' mobileHeight='90%'>
-                    <NormalWords>The Factory<br/>5616 New Peachtree Rd, Chamblee, GA 30341</NormalWords>
+                    <NormalWords><VenueLink target="_blank" rel="noopener noreferrer" href={siteMetadata.weddingInfo.gmapsLink}>The Factory<br/>5616 New Peachtree Rd, Chamblee, GA 30341</VenueLink></NormalWords>
                     
                     <NormalWords> <PopTime>5</PopTime><PopTime2>pm</PopTime2> Ceremoney</NormalWords>
                     <NormalWords><PopTime>5:30</PopTime><PopTime2>pm</PopTime2> Cocktails</NormalWords>
