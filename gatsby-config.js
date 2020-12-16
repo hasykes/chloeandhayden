@@ -50,17 +50,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Flamenco`,
-          },
-          {
-            family: `Montserrat`,
-          },
+          `Flamenco`,
+          `Montserrat`,
+          `Libre Baskerville`
         ],
-      },
+      }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
