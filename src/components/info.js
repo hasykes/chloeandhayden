@@ -181,7 +181,7 @@ const BrushStroke = styled.img`
 
 const Info = (props) => {
 return(
-    <FlexContainer>
+    <FlexContainer id='info'>
         <ContentWrapper>   
             <GridWrap>
                 <Box order={1} color='dark' mobileColor="dark">

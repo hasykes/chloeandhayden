@@ -16,8 +16,8 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <Landing />
-        <Info />
+        <Landing id='landing' />
+        <Info id='info' />
       </Layout>
       
     )
