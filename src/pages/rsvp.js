@@ -49,6 +49,7 @@ const RsvpForm = styled.form`
   margin:0 auto;
   max-width:80%;
   color:${theme.primaryText};
+  font-weight:bold;
   
 `
 
@@ -127,6 +128,25 @@ const SubmitButton = styled.input`
   }
 `
 
+const StyledP = styled.p`
+  margin-bottom:.25em;
+`
+
+const SmallP = styled.p`
+  margin-bottom:1em;
+  font-size:.75em;
+  font-style:italic;
+`
+
+const StyledHR = styled.hr`
+  margin-bottom:.5em;
+`
+
+const GuestSpan = styled.span`
+  min-width:150px;
+  display:inline-block;
+`
+
 class Rsvp extends React.Component {
   constructor() {
     super()
@@ -181,7 +201,7 @@ class Rsvp extends React.Component {
                   <StyledInput type="text" id="lname" name="lname" required /> 
                   <StyledLabel htmlFor="lname">Last name</StyledLabel>
                 </FlexDiv>
-                <p>*as it appears on your invite</p>
+                <SmallP>Please enter your name as it appears on your invitation</SmallP>
               </StyledFieldSet>
               <StyledFieldSet>
                 <SubmitButton type="submit" value="Submit"/>
@@ -191,7 +211,7 @@ class Rsvp extends React.Component {
       }else{
         FormData = (
           <RsvpForm action="/thankyou" netlify name="rsvp">
-          <p>Name<sup>*</sup></p>
+          <StyledP>Name<sup>*</sup></StyledP>
             <StyledFieldSet>
               <FlexDiv>
                 <StyledInput type="text" id="fname" name="fname"  value={this.state.guestFirstName} required/>
@@ -202,33 +222,40 @@ class Rsvp extends React.Component {
                 <StyledLabel htmlFor="lname">Last name</StyledLabel>
               </FlexDiv>
             </StyledFieldSet>
-            <hr />
-            <p>Email<sup>*</sup></p>
+            <StyledHR />
+            <StyledP>Email<sup>*</sup></StyledP>
             <StyledFieldSet>
               <StyledInput type="text" id="email" name="email"  required />
             </StyledFieldSet>
-            <hr />
-            <p>Who will be attending?<sup>*</sup></p>
-            <p>Select all that apply</p>
+            <StyledHR />
+            <StyledP>Who will be attending?<sup>*</sup></StyledP>
+            <SmallP>Select one option per guest</SmallP>
             <div>
               {this.state.guestGroup.map((guest,i) => {
                 return (
-                <p key={'p'+i}>
-                <RadioInput key={'checkbox'+i} type="checkbox" name={guest} id={guest + 'checkbox'} />
-                <StyledLabel key={'label'+i}htmlFor={guest}>{guest}</StyledLabel>
-                </p>
+                <StyledP key={'p'+i}>
+                <GuestSpan>{guest}</GuestSpan>
+                <span>
+                  <RadioInput key={'radio'+ 'yes' + i} type="radio" name={guest + 'rsvp'} id={guest + 'yes'} />
+                    <StyledLabel key={'labelyes'+i} htmlFor={guest + 'yes'}>Yes</StyledLabel>
+                  </span>
+                  <span>
+                    <RadioInput key={'radio'+ 'no' + i} type="radio" name={guest + 'rsvp'} id={guest + 'no'} />
+                    <StyledLabel key={'labelno'+i}htmlFor={guest + 'no'}>No</StyledLabel>
+                  </span>
+                </StyledP>
                 )
               })
               }
             </div>
-            <hr />
-            <p>What would you like to eat?*</p>
-            <p>Select one option for each guest</p>
+            <StyledHR />
+            <StyledP>What would you like to eat?*</StyledP>
+            <SmallP>Select one option for each guest</SmallP>
             <div>
               {this.state.guestGroup.map((guest,i) => {
                 return (
-                <p key={'p'+i}>
-                  <span>{guest}</span>  
+                <StyledP key={'p'+i}>
+                  <GuestSpan>{guest}</GuestSpan>  
                   <span>
                     <RadioInput key={'radio'+ 'chicken' + i} type="radio" name={guest + 'dinnerChoice'} id={guest + 'chicken'} />
                     <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
@@ -241,13 +268,13 @@ class Rsvp extends React.Component {
                     <RadioInput key={'radio'+ 'veggie' + i} type="radio" name={guest + 'dinnerChoice'} id={guest + 'veggie'} />
                     <StyledLabel key={'label'+i}htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
                   </span>
-                </p>
+                </StyledP>
                 )
               })
               }
             </div>
-            <hr />  
-            <p>Message</p>
+            <StyledHR />  
+            <StyledP>Message</StyledP>
             <StyledFieldSet>
               <StyledTextArea type="textarea" id="message" name="message" rows={5}  />
             </StyledFieldSet>

@@ -81,7 +81,6 @@ const Thankyou = () => {
             <FlexContainer>          
                 <ContentWrapper id='thankyou' >
                     <Header>Thank You!</Header>
-                    <CenterP>We are so excited for you to celebrate this special day with us!</CenterP>
                     <FlexP>
                         <RegistryButton href="/">Home</RegistryButton>
                     </FlexP>
