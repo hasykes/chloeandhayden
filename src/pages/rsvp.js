@@ -176,8 +176,27 @@ class Rsvp extends React.Component {
       invited:false,
       guestGroup:[],
       inputError:false,
+      email:'',
+      message:'',
+      g0name:'',
+      g1name:'',
+      g2name:'',
+      g3name:'',
+      g4name:'',
+      g0rsvp:'',
+      g0food:'',
+      g1rsvp:'',
+      g1food:'',
+      g2rsvp:'',
+      g2food:'',
+      g3rsvp:'',
+      g3food:'',
+      g4rsvp:'',
+      g4food:'',
+        //can continue on for more guests in an rsvp group
     }
 
+    this.handleChange = this.handleChange.bind(this);
     this.validateGuest = this.validateGuest.bind(this);
     this.resetAnimation = this.resetAnimation.bind(this);
     
@@ -190,6 +209,13 @@ class Rsvp extends React.Component {
     }  
   }
   //Custom Methods
+
+  handleChange(e){
+    console.log(e.target)
+    this.setState({
+      [e.target.name]:e.target.value
+    },console.log(this.state));
+  }
 
   validateGuest(e) {
    e.preventDefault()
@@ -266,7 +292,7 @@ class Rsvp extends React.Component {
             <StyledHR />
             <StyledP>Email<sup>*</sup></StyledP>
             <StyledFieldSet>
-              <StyledInput type="text" id="email" name="email"  required />
+              <StyledInput type="text" id="email" name="email" onChange={this.handleChange} required />
             </StyledFieldSet>
             <StyledHR />
             <StyledP>Who will be attending?<sup>*</sup></StyledP>
@@ -277,11 +303,11 @@ class Rsvp extends React.Component {
                 <StyledP key={'p'+i}>
                 <GuestSpan>{guest}</GuestSpan>
                 <span>
-                  <RadioInput key={'radio'+ 'yes' + i} type="radio" name={guest + 'rsvp'} id={guest + 'yes'} />
+                  <RadioInput key={'radioyes' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'yes'} value="yes" onChange={this.handleChange} />
                     <StyledLabel key={'labelyes'+i} htmlFor={guest + 'yes'}>Yes</StyledLabel>
                   </span>
                   <span>
-                    <RadioInput key={'radio'+ 'no' + i} type="radio" name={guest + 'rsvp'} id={guest + 'no'} />
+                    <RadioInput key={'radiono' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'no'} value="no" onChange={this.handleChange} />
                     <StyledLabel key={'labelno'+i}htmlFor={guest + 'no'}>No</StyledLabel>
                   </span>
                 </StyledP>
@@ -298,16 +324,16 @@ class Rsvp extends React.Component {
                 <StyledP key={'p'+i}>
                   <GuestSpan>{guest}</GuestSpan>  
                   <span>
-                    <RadioInput key={'radio'+ 'chicken' + i} type="radio" name={guest + 'dinnerChoice'} id={guest + 'chicken'} />
+                    <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" onChange={this.handleChange} />
                     <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
                   </span>
                   <span>
-                    <RadioInput key={'radio'+ 'fish' + i} type="radio" name={guest + 'dinnerChoice'} id={guest + 'fish'} />
-                    <StyledLabel key={'label'+i}htmlFor={guest + 'fish'}>Fish</StyledLabel>
+                    <RadioInput key={'radiofish' + i} type="radio" name={'g' + i + 'food'} id={guest + 'fish'} value="fish" onChange={this.handleChange} />
+                    <StyledLabel key={'label'+i} htmlFor={guest + 'fish'}>Fish</StyledLabel>
                   </span>
                   <span>
-                    <RadioInput key={'radio'+ 'veggie' + i} type="radio" name={guest + 'dinnerChoice'} id={guest + 'veggie'} />
-                    <StyledLabel key={'label'+i}htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
+                    <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" onChange={this.handleChange} />
+                    <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
                   </span>
                 </StyledP>
                 )
@@ -317,7 +343,7 @@ class Rsvp extends React.Component {
             <StyledHR />  
             <StyledP>Message</StyledP>
             <StyledFieldSet>
-              <StyledTextArea type="textarea" id="message" name="message" rows={5}  />
+              <StyledTextArea type="textarea" id="message" name="message" rows={5} onChange={this.handleChange} />
             </StyledFieldSet>
             
             <StyledFieldSet>
