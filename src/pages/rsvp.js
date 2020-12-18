@@ -344,7 +344,7 @@ class Rsvp extends React.Component {
               }
             </div>
             <StyledHR />
-            <StyledP>What would you like to eat?*</StyledP>
+            <StyledP>What would you like to eat?<sup>*</sup></StyledP>
             <SmallP>Select one option for each guest</SmallP>
             <div>
               {this.state.guestGroup.map((guest,i) => {
