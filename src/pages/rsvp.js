@@ -10,6 +10,10 @@ const errorAnimation = keyframes`
   0% { left: -5px; }
   100% { right: -5px; }
 `
+const textErrorAnimation = keyframes`
+  0% { color: ${theme.secondaryAccent}; }
+  100% { color:${theme.primaryText}; }
+`
 
 const FlexContainer = styled.div`
   display:flex;
@@ -73,7 +77,7 @@ const FlexDiv = styled.div`
   padding:10px;
 
   position:relative;
-        animation-name:${props => props.animate ? errorAnimation:''};
+  animation-name:${props => props.animate ? errorAnimation:''};
   animation-duration:.1s;
   animation-iteration-count:3;
   
@@ -145,6 +149,10 @@ const SmallP = styled.p`
   margin-bottom:1em;
   font-size:.75em;
   font-style:italic;
+
+  animation-name:${props => props.animate ? textErrorAnimation:''};
+  animation-duration:1s;
+  animation-iteration-count:1;
 `
 
 const StyledHR = styled.hr`
@@ -171,8 +179,17 @@ class Rsvp extends React.Component {
     }
 
     this.validateGuest = this.validateGuest.bind(this);
+    this.resetAnimation = this.resetAnimation.bind(this);
     
   }
+
+  //Lifecycles
+  componentDidUpdate(prevProps,prevState){
+    if(this.state.inputError){
+      setTimeout(this.resetAnimation)
+    }  
+  }
+  //Custom Methods
 
   validateGuest(e) {
    e.preventDefault()
@@ -197,15 +214,20 @@ class Rsvp extends React.Component {
       })
     }  
     
+    
 
   })
 
   }
 
+  resetAnimation(){
+    setTimeout(() => this.setState({inputError:false}),500)
+  }
+
     render() {
 
       let FormData;
-        
+      console.log(this.state)
       if(!this.state.invited){
         FormData = (
           <RsvpForm onSubmit={this.validateGuest}>
@@ -218,7 +240,7 @@ class Rsvp extends React.Component {
                   <StyledInput type="text" id="lname" name="lname" required /> 
                   <StyledLabel htmlFor="lname">Last name</StyledLabel>
                 </FlexDiv>
-                <SmallP>Please enter your name as it appears on your invitation</SmallP>
+                <SmallP animate={this.state.inputError}>Please enter your name as it appears on your invitation</SmallP>
               </StyledFieldSet>
               <StyledFieldSet>
                 <SubmitButton type="submit" value="Submit"/>
