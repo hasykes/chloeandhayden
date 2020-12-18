@@ -1,4 +1,5 @@
 import React from "react"
+import { navigate } from "gatsby-link"
 import styled,{ keyframes } from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -255,8 +256,10 @@ class Rsvp extends React.Component {
   }
 
   handleSubmit(e){
+    e.preventDefault();
+    const form = e.target;
     //what fields do I want to store?
-    const {guestFirstName,guestLastName,guestGroup,numOfGuests,invited,inputError,...postState} = this.state;
+    const {guestFirstName,guestLastName,guestGroup,invited,inputError,...postState} = this.state;
 
     //I should probably do this somewhere else... but works?
     guestGroup.forEach((guest,i) => {
@@ -268,14 +271,14 @@ class Rsvp extends React.Component {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ 
-        "form-name": "rsvp",
+        "form-name": form.getAttribute("name"),
           ...postState
         })
     })
-      .then(() => alert('Success'))
-      .catch(error => alert(error));
+      .then(() => navigate(form.getAttribute("action")))
+      .catch(error => alert("Something went wrong.  Please contact Hayden to finish up your RSVP. Error: " + error));
 
-    e.preventDefault();
+    
   };
 
     render() {
@@ -303,7 +306,7 @@ class Rsvp extends React.Component {
         )
       }else{
         FormData = (
-          <RsvpForm onSubmit={this.handleSubmit} data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">
+          <RsvpForm onSubmit={this.handleSubmit} action="/thankyou" data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p hidden><input name="bot-field"></input></p>
           <StyledP>Name<sup>*</sup></StyledP>
