@@ -164,7 +164,12 @@ const GuestSpan = styled.span`
   display:inline-block;
 `
 
-
+//usefunctions
+const encode = (data) => {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
 
 class Rsvp extends React.Component {
   constructor() {
@@ -199,7 +204,7 @@ class Rsvp extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.validateGuest = this.validateGuest.bind(this);
     this.resetAnimation = this.resetAnimation.bind(this);
-    
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   //Lifecycles
@@ -209,14 +214,6 @@ class Rsvp extends React.Component {
     }  
   }
   //Custom Methods
-
-  handleChange(e){
-    console.log(e.target)
-    this.setState({
-      [e.target.name]:e.target.value
-    },console.log(this.state));
-  }
-
   validateGuest(e) {
    e.preventDefault()
    const data = new FormData(e.target);
@@ -250,6 +247,37 @@ class Rsvp extends React.Component {
     setTimeout(() => this.setState({inputError:false}),500)
   }
 
+  handleChange(e){
+    console.log(e.target)
+    this.setState({
+      [e.target.name]:e.target.value
+    },console.log(this.state));
+  }
+
+  handleSubmit(e){
+    //what fields do I want to store?
+    const {guestFirstName,guestLastName,guestGroup,numOfGuests,invited,inputError,...postState} = this.state;
+
+    //I should probably do this somewhere else... but works?
+    guestGroup.forEach((guest,i) => {
+      postState[`g${i}name`] = guest;
+    })
+    
+    console.log(postState)
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ 
+        "form-name": "rsvp",
+          ...postState
+        })
+    })
+      .then(() => window.location = '/thankyou')
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  };
+
     render() {
 
       let FormData;
@@ -275,7 +303,7 @@ class Rsvp extends React.Component {
         )
       }else{
         FormData = (
-          <RsvpForm action="/thankyou" data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">
+          <RsvpForm onSubmit={this.handleSubmit} data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p hidden><input name="bot-field"></input></p>
           <StyledP>Name<sup>*</sup></StyledP>
