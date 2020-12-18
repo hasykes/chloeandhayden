@@ -272,7 +272,7 @@ class Rsvp extends React.Component {
           ...postState
         })
     })
-      .then(() => window.location = '/thankyou')
+      .then(() => alert('Success'))
       .catch(error => alert(error));
 
     e.preventDefault();
