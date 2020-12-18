@@ -229,7 +229,7 @@ class Rsvp extends React.Component {
       this.setState({
         invited,
         guestGroup,
-        numOfGuests:guestGroup.length-1,
+        numOfGuests:guestGroup.length,
         guestFirstName:data.get('fname'),
         guestLastName:data.get('lname'),
         inputError:false,
@@ -251,10 +251,9 @@ class Rsvp extends React.Component {
   }
 
   handleChange(e){
-    console.log(e.target)
     this.setState({
       [e.target.name]:e.target.value
-    },console.log(this.state));
+    });
   }
 
   handleSubmit(e){
@@ -268,7 +267,6 @@ class Rsvp extends React.Component {
       postState[`g${i}name`] = guest;
     })
     
-    console.log(postState)
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -286,7 +284,6 @@ class Rsvp extends React.Component {
     render() {
 
       let FormData;
-      console.log(this.state)
       if(!this.state.invited){
         FormData = (
           <RsvpForm onSubmit={this.validateGuest}>
