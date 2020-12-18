@@ -1,10 +1,15 @@
 import React from "react"
-import styled from "styled-components"
+import styled,{ keyframes } from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import {guestList} from "../data/guestList"
 import {theme} from "../components/theme"
+
+const errorAnimation = keyframes`
+  0% { left: -5px; }
+  100% { right: -5px; }
+`
 
 const FlexContainer = styled.div`
   display:flex;
@@ -66,6 +71,12 @@ const FlexDiv = styled.div`
   display:flex;
   flex-wrap:wrap;
   padding:10px;
+
+  position:relative;
+        animation-name:${props => props.animate ? errorAnimation:''};
+  animation-duration:.1s;
+  animation-iteration-count:3;
+  
  
   `
 
@@ -75,9 +86,7 @@ const StyledInput = styled.input`
   padding:10px;
   border-radius:5px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-  border:none;
-  
-  
+  border:none;  
 `
 
 const StyledTextArea = styled.textarea`
@@ -147,6 +156,8 @@ const GuestSpan = styled.span`
   display:inline-block;
 `
 
+
+
 class Rsvp extends React.Component {
   constructor() {
     super()
@@ -156,6 +167,7 @@ class Rsvp extends React.Component {
       numOfGuests:1,
       invited:false,
       guestGroup:[],
+      inputError:false,
     }
 
     this.validateGuest = this.validateGuest.bind(this);
@@ -176,7 +188,12 @@ class Rsvp extends React.Component {
         guestGroup,
         numOfGuests:guestGroup.length-1,
         guestFirstName:data.get('fname'),
-        guestLastName:data.get('lname')
+        guestLastName:data.get('lname'),
+        inputError:false,
+      })
+    }else{
+      this.setState({
+        inputError:true,
       })
     }  
     
@@ -188,16 +205,16 @@ class Rsvp extends React.Component {
     render() {
 
       let FormData;
-      
+        
       if(!this.state.invited){
         FormData = (
           <RsvpForm onSubmit={this.validateGuest}>
             <StyledFieldSet>
-                <FlexDiv>
+                <FlexDiv animate={this.state.inputError}>
                   <StyledInput type="text" id="fname" name="fname" required/>
                   <StyledLabel htmlFor="fname">First name</StyledLabel>
                 </FlexDiv>
-                <FlexDiv>
+                <FlexDiv animate={this.state.inputError}>
                   <StyledInput type="text" id="lname" name="lname" required /> 
                   <StyledLabel htmlFor="lname">Last name</StyledLabel>
                 </FlexDiv>
