@@ -249,7 +249,9 @@ class Rsvp extends React.Component {
         )
       }else{
         FormData = (
-          <RsvpForm action="/thankyou" netlify name="rsvp">
+          <RsvpForm action="/thankyou" data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden><input name="bot-field"></input></p>
           <StyledP>Name<sup>*</sup></StyledP>
             <StyledFieldSet>
               <FlexDiv>
