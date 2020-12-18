@@ -306,7 +306,7 @@ class Rsvp extends React.Component {
         )
       }else{
         FormData = (
-          <RsvpForm onSubmit={this.handleSubmit} action="/thankyou" data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">
+          <RsvpForm onSubmit={this.handleSubmit} method="post" action="/thankyou" data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p hidden><input name="bot-field"></input></p>
           <StyledP>Name<sup>*</sup></StyledP>
