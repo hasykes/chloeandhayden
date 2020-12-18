@@ -397,76 +397,26 @@ class Rsvp extends React.Component {
           </ContentWrapper>
         </FlexContainer>
         <HiddenForm onSubmit={null} method="post" action="/thankyou" data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="contact" />
-            <p hidden><input name="bot-field"></input></p>
-            <StyledP>Name<sup>*</sup></StyledP>
-              <StyledFieldSet>
-                <FlexDiv>
-                  <StyledInput type="text" id="fname" name="fname"  value={this.state.guestFirstName} required/>
-                  <StyledLabel htmlFor="fname">First name</StyledLabel>
-                </FlexDiv>
-                <FlexDiv>
-                  <StyledInput type="text" id="lname" name="lname" value={this.state.guestLastName} requried /> 
-                  <StyledLabel htmlFor="lname">Last name</StyledLabel>
-                </FlexDiv>
-              </StyledFieldSet>
-              <StyledHR />
-              <StyledP>Email<sup>*</sup></StyledP>
-              <StyledFieldSet>
-                <StyledInput type="text" id="email" name="email" onChange={this.handleChange} required />
-              </StyledFieldSet>
-              <StyledHR />
-              <StyledP>Who will be attending?<sup>*</sup></StyledP>
-              <SmallP>Select one option per guest</SmallP>
-              <div>
-                {this.state.guestGroup.map((guest,i) => {
-                  return (
-                  <StyledP key={'p'+i}>
-                  <GuestSpan>{guest}</GuestSpan>
-                  <span>
-                    <RadioInput key={'radioyes' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'yes'} value="yes" onChange={this.handleChange} />
-                      <StyledLabel key={'labelyes'+i} htmlFor={guest + 'yes'}>Yes</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radiono' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'no'} value="no" onChange={this.handleChange} />
-                      <StyledLabel key={'labelno'+i}htmlFor={guest + 'no'}>No</StyledLabel>
-                    </span>
-                  </StyledP>
-                  )
-                })
-                }
-              </div>
-              <StyledHR />
-              <StyledP>What would you like to eat?<sup>*</sup></StyledP>
-              <SmallP>Select one option for each guest</SmallP>
-              <div>
-                {this.state.guestGroup.map((guest,i) => {
-                  return (
-                  <StyledP key={'p'+i}>
-                    <GuestSpan>{guest}</GuestSpan>  
-                    <span>
-                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" onChange={this.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radiofish' + i} type="radio" name={'g' + i + 'food'} id={guest + 'fish'} value="fish" onChange={this.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'fish'}>Fish</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" onChange={this.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
-                    </span>
-                  </StyledP>
-                  )
-                })
-                }
-              </div>
-              <StyledHR />  
-              <StyledP>Message</StyledP>
-              <StyledFieldSet>
-                <StyledTextArea type="textarea" id="message" name="message" rows={5} onChange={this.handleChange} />
-              </StyledFieldSet>
-            </HiddenForm>
+            <input type="hidden" name="rsvp" value="Click Here" />
+            <input type="text" name="email" />
+            <input type="text" name="message" />
+            <input type="text" name="g0name" />
+            <input type="text" name="g0rsvp" />
+            <input type="text" name="g0food" />
+            <input type="text" name="g1name" />
+            <input type="text" name="g1rsvp" />
+            <input type="text" name="g1food" />
+            <input type="text" name="g2name" />
+            <input type="text" name="g2rsvp" />
+            <input type="text" name="g2food" />
+            <input type="text" name="g3name" />
+            <input type="text" name="g3rsvp" />
+            <input type="text" name="g3food" />
+            <input type="text" name="g4name" />
+            <input type="text" name="g4rsvp" />
+            <input type="text" name="g4food" />
+            <input type="text" name="numOfGuests" />
+        </HiddenForm>
       </Layout>
     )
     }
