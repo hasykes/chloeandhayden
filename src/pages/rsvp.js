@@ -187,20 +187,23 @@ class Rsvp extends React.Component {
       email:'',
       message:'',
       g0name:'',
-      g1name:'',
-      g2name:'',
-      g3name:'',
-      g4name:'',
       g0rsvp:'',
       g0food:'',
+      g1name:'',
       g1rsvp:'',
       g1food:'',
+      g2name:'',
       g2rsvp:'',
       g2food:'',
+      g3name:'',
       g3rsvp:'',
       g3food:'',
+      g4name:'',
       g4rsvp:'',
       g4food:'',
+      g5name:'',
+      g5rsvp:'',
+      g5food:'',
         //can continue on for more guests in an rsvp group
     }
 
@@ -412,6 +415,9 @@ class Rsvp extends React.Component {
             <input type="text" name="g4name" />
             <input type="text" name="g4rsvp" />
             <input type="text" name="g4food" />
+            <input type="text" name="g5name" />
+            <input type="text" name="g5rsvp" />
+            <input type="text" name="g5food" />
             <input type="text" name="numOfGuests" />
         </HiddenForm>
       </Layout>
