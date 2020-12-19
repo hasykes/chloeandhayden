@@ -160,7 +160,7 @@ const StyledHR = styled.hr`
 `
 
 const GuestSpan = styled.span`
-  min-width:150px;
+  min-width:225px;
   display:inline-block;
 `
 
