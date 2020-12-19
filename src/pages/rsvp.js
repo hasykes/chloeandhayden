@@ -336,7 +336,7 @@ class Rsvp extends React.Component {
                 <StyledP key={'p'+i}>
                 <GuestSpan>{guest}</GuestSpan>
                 <span>
-                  <RadioInput key={'radioyes' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'yes'} value="yes" onChange={this.handleChange} />
+                  <RadioInput key={'radioyes' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'yes'} value="yes" onChange={this.handleChange} required/>
                     <StyledLabel key={'labelyes'+i} htmlFor={guest + 'yes'}>Yes</StyledLabel>
                   </span>
                   <span>
@@ -353,23 +353,27 @@ class Rsvp extends React.Component {
             <SmallP>Select one option for each guest</SmallP>
             <div>
               {this.state.guestGroup.map((guest,i) => {
-                return (
-                <StyledP key={'p'+i}>
-                  <GuestSpan>{guest}</GuestSpan>  
-                  <span>
-                    <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" onChange={this.handleChange} />
-                    <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
-                  </span>
-                  <span>
-                    <RadioInput key={'radiofish' + i} type="radio" name={'g' + i + 'food'} id={guest + 'fish'} value="fish" onChange={this.handleChange} />
-                    <StyledLabel key={'label'+i} htmlFor={guest + 'fish'}>Fish</StyledLabel>
-                  </span>
-                  <span>
-                    <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" onChange={this.handleChange} />
-                    <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
-                  </span>
-                </StyledP>
-                )
+                if(this.state[`g${i}rsvp`] === 'no'){
+                  return <span></span>
+                }else{
+                  return (
+                  <StyledP key={'p'+i}>
+                    <GuestSpan>{guest}</GuestSpan>  
+                    <span>
+                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" onChange={this.handleChange} required />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
+                    </span>
+                    <span>
+                      <RadioInput key={'radiofish' + i} type="radio" name={'g' + i + 'food'} id={guest + 'fish'} value="fish" onChange={this.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'fish'}>Fish</StyledLabel>
+                    </span>
+                    <span>
+                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" onChange={this.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
+                    </span>
+                  </StyledP>
+                  )
+                }
               })
               }
             </div>
