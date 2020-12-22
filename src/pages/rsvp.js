@@ -348,10 +348,10 @@ class Rsvp extends React.Component {
               })
               }
             </div>
+            <div>
             <StyledHR />
             <StyledP>What would you like to eat?<sup>*</sup></StyledP>
             <SmallP>Select one option for each guest</SmallP>
-            <div>
               {this.state.guestGroup.map((guest,i) => {
                 if(this.state[`g${i}rsvp`] === 'no'){
                   return <span></span>
