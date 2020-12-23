@@ -15,13 +15,19 @@ const textErrorAnimation = keyframes`
   0% { color: ${theme.secondaryAccent}; }
   100% { color:${theme.primaryText}; }
 `
-
 const FlexContainer = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
   align-content:center;
   min-height:100vh;
+
+  /*Mobile Styles*/
+  @media (max-width: ${theme.devices.tablet}px)  {
+    justify-content:flex-start;
+    align-items:flex-start;
+    align-content:flex-start;    
+    }
 `
 const ContentWrapper = styled.div`
   position:relative;
@@ -38,6 +44,9 @@ const ContentWrapper = styled.div`
   /*Mobile Styles*/
   @media (max-width: ${theme.devices.tablet}px),(orientation: portrait)  {
       width:100vw;
+      border:none;
+      box-shadow:none;
+      max-width:100vw;
     }
 `
 const Header = styled.h1`
@@ -51,7 +60,7 @@ const Header = styled.h1`
       margin-top:.1em;
     }
   @media (max-width: ${theme.devices.mobileL}px){
-    font-size:2.5em;
+    font-size:4em;
 }
   
 `
@@ -60,6 +69,10 @@ const RsvpForm = styled.form`
   max-width:80%;
   color:${theme.primaryText};
   font-weight:bold;
+
+  @media (max-width: ${theme.devices.tablet}px){
+    /*font-size:${props => props.smallMobile ? '2.3em':'3em'}*/
+}
   
 `
 
@@ -117,6 +130,10 @@ const RadioInput = styled.input`
 padding:10px;
 margin-left:1em;
 color:${theme.primaryText};
+
+@media (max-width: ${theme.devices.tablet}px){
+  ${props => props.removeLeftMargin ? 'margin-left:0;':''}
+}
 `
 
 const SubmitButton = styled.input`
@@ -153,6 +170,18 @@ const SmallP = styled.p`
   animation-name:${props => props.animate ? textErrorAnimation:''};
   animation-duration:1s;
   animation-iteration-count:1;
+
+  ${props => {
+    if(props.mobile){
+     return ( `@media (max-width: ${theme.devices.tablet}px){
+        text-align:center;
+        width:70%;
+    }`)
+    }
+  }}
+
+
+  
 `
 
 const StyledHR = styled.hr`
@@ -162,6 +191,9 @@ const StyledHR = styled.hr`
 const GuestSpan = styled.span`
   min-width:225px;
   display:inline-block;
+
+  @media (max-width: ${theme.devices.mobileL}px){
+    display:block;
 `
 
 const HiddenForm = styled.form`
@@ -175,8 +207,8 @@ const encode = (data) => {
 }
 
 class Rsvp extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       guestFirstName:'',
       guestLastName:'',
@@ -299,7 +331,7 @@ class Rsvp extends React.Component {
                   <StyledInput type="text" id="lname" name="lname" required /> 
                   <StyledLabel htmlFor="lname">Last name</StyledLabel>
                 </FlexDiv>
-                <SmallP animate={this.state.inputError}>Please enter your name as it appears on your invitation</SmallP>
+                <SmallP animate={this.state.inputError} mobile={true}>Please enter your name as it appears on your invitation</SmallP>
               </StyledFieldSet>
               <StyledFieldSet>
                 <SubmitButton type="submit" value="Submit"/>
@@ -336,7 +368,7 @@ class Rsvp extends React.Component {
                 <StyledP key={'p'+i}>
                 <GuestSpan>{guest}</GuestSpan>
                 <span>
-                  <RadioInput key={'radioyes' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'yes'} value="yes" onChange={this.handleChange} required/>
+                  <RadioInput key={'radioyes' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'yes'} value="yes" onChange={this.handleChange} removeLeftMargin required/>
                     <StyledLabel key={'labelyes'+i} htmlFor={guest + 'yes'}>Yes</StyledLabel>
                   </span>
                   <span>
@@ -360,7 +392,7 @@ class Rsvp extends React.Component {
                   <StyledP key={'p'+i}>
                     <GuestSpan>{guest}</GuestSpan>  
                     <span>
-                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" onChange={this.handleChange} required />
+                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" onChange={this.handleChange} removeLeftMargin required />
                       <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
                     </span>
                     <span>
