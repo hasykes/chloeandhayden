@@ -401,7 +401,7 @@ class Rsvp extends React.Component {
             <SmallP>Select one option for each guest</SmallP>
               {this.state.guestGroup.map((guest,i) => {
                 if(this.state[`g${i}rsvp`] === 'no'){
-                  return <span></span>
+                  return <span key={`empty${i}`} />
                 }else{
                   return (
                   <StyledP key={'p'+i}>
