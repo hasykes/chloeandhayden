@@ -210,6 +210,7 @@ class Rsvp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      responded:false,
       guestFirstName:'',
       guestLastName:'',
       numOfGuests:1,
@@ -239,6 +240,14 @@ class Rsvp extends React.Component {
         //can continue on for more guests in an rsvp group
     }
 
+    //pre-mount functions
+    const previousResponse = JSON.parse(localStorage.getItem('rsvp'))
+    if(previousResponse){
+      console.log(`Hey ${previousResponse.guestFirstName}, you've already RSVPd! If you think you've made a mistake, send Hayden or Chloe an email and they'll get it sorted out.`)
+      this.state = previousResponse;
+    }
+
+    //binders
     this.handleChange = this.handleChange.bind(this);
     this.validateGuest = this.validateGuest.bind(this);
     this.resetAnimation = this.resetAnimation.bind(this);
@@ -246,11 +255,14 @@ class Rsvp extends React.Component {
   }
 
   //Lifecycles
+
   componentDidUpdate(prevProps,prevState){
     if(this.state.inputError){
       setTimeout(this.resetAnimation)
     }  
   }
+
+  
   //Custom Methods
   validateGuest(e) {
    e.preventDefault()
@@ -310,7 +322,10 @@ class Rsvp extends React.Component {
           ...postState
         })
     })
-      .then(() => navigate(form.getAttribute("action")))
+      .then(() => {
+        navigate(form.getAttribute("action"))
+        localStorage.setItem('rsvp',JSON.stringify(this.state))
+      })
       .catch(error => alert("Something went wrong.  Please contact Hayden to finish up your RSVP. Error: " + error));
 
     

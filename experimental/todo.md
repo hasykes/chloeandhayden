@@ -3,10 +3,9 @@
 
 
 **Rsvp**
-- create guest list JSON
-- create mobile styles for rsvp forms
-- Merge into master once invitations are sent out
 - LocalStorage api to track if you have already rsvpd
+- Merge into master once invitations are sent out
+
 
 **Info**
 Add link to photo page
