@@ -241,7 +241,7 @@ class Rsvp extends React.Component {
     }
 
     //pre-mount functions
-    if(typeof window !== 'undefined'){
+    if(typeof window !== 'undefined' && window.localStorage.getItem('rsvp')){
       const previousResponse = JSON.parse(localStorage.getItem('rsvp'))
       if(previousResponse){
         console.log(`Hey ${previousResponse.guestFirstName}, you've already RSVPd! If you think you've made a mistake, send Hayden or Chloe an email and they'll get it sorted out.`)
@@ -326,7 +326,7 @@ class Rsvp extends React.Component {
     })
       .then(() => {
         navigate(form.getAttribute("action"))
-        if(typeof window !== 'undefined'){
+        if(typeof window !== 'undefined' && window.localStorage.getItem('rsvp')){
           this.setState({responded:true},() => localStorage.setItem('rsvp',JSON.stringify(this.state)))
         }
         
