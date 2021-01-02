@@ -324,7 +324,9 @@ class Rsvp extends React.Component {
     })
       .then(() => {
         navigate(form.getAttribute("action"))
-        this.setState({responded:true},() => localStorage.setItem('rsvp',JSON.stringify(this.state)))
+        if(typeof window !== undefined){
+          this.setState({responded:true},() => localStorage.setItem('rsvp',JSON.stringify(this.state)))
+        }
         
       })
       .catch(error => alert("Something went wrong.  Please contact Hayden to finish up your RSVP. Error: " + error));
