@@ -241,12 +241,14 @@ class Rsvp extends React.Component {
     }
 
     //pre-mount functions
-    const previousResponse = JSON.parse(localStorage.getItem('rsvp'))
-    if(previousResponse){
-      console.log(`Hey ${previousResponse.guestFirstName}, you've already RSVPd! If you think you've made a mistake, send Hayden or Chloe an email and they'll get it sorted out.`)
-      this.state = previousResponse;
+    if(typeof window !== undefined){
+      const previousResponse = JSON.parse(localStorage.getItem('rsvp'))
+      if(previousResponse){
+        console.log(`Hey ${previousResponse.guestFirstName}, you've already RSVPd! If you think you've made a mistake, send Hayden or Chloe an email and they'll get it sorted out.`)
+        this.state = previousResponse;
+      }
     }
-
+    
     //binders
     this.handleChange = this.handleChange.bind(this);
     this.validateGuest = this.validateGuest.bind(this);
