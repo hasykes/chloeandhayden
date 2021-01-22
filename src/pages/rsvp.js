@@ -326,7 +326,7 @@ class Rsvp extends React.Component {
     })
       .then(() => {
         navigate(form.getAttribute("action"))
-        if(typeof window !== 'undefined' && window.localStorage.getItem('rsvp')){
+        if(typeof window !== 'undefined'){
           this.setState({responded:true},() => localStorage.setItem('rsvp',JSON.stringify(this.state)))
         }
         
