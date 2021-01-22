@@ -416,8 +416,8 @@ class Rsvp extends React.Component {
                       <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
                     </span>
                     <span>
-                      <RadioInput key={'radiofish' + i} type="radio" name={'g' + i + 'food'} id={guest + 'fish'} value="fish" checked={this.state[`g${i}food`] == 'fish' ? true:false} onChange={this.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'fish'}>Fish</StyledLabel>
+                      <RadioInput key={'radiosteak' + i} type="radio" name={'g' + i + 'food'} id={guest + 'steak'} value="steak" checked={this.state[`g${i}food`] == 'steak' ? true:false} onChange={this.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'steak'}>Steak</StyledLabel>
                     </span>
                     <span>
                       <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" checked={this.state[`g${i}food`] == 'veggie' ? true:false} onChange={this.handleChange} />
