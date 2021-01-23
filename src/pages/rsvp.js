@@ -1,20 +1,15 @@
 import React from "react"
 import { navigate } from "gatsby-link"
-import styled,{ keyframes } from "styled-components"
+import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RsvpInitial from "../components/rsvpInitial"
+import RsvpSecondary from "../components/rsvpSecondary"
 
 import {guestList} from "../data/guestList"
 import {theme} from "../components/theme"
 
-const errorAnimation = keyframes`
-  0% { left: -5px; }
-  100% { right: -5px; }
-`
-const textErrorAnimation = keyframes`
-  0% { color: ${theme.secondaryAccent}; }
-  100% { color:${theme.primaryText}; }
-`
+
 const FlexContainer = styled.div`
   display:flex;
   justify-content:center;
@@ -64,137 +59,6 @@ const Header = styled.h1`
 }
   
 `
-const RsvpForm = styled.form`
-  margin:0 auto;
-  max-width:80%;
-  color:${theme.primaryText};
-  font-weight:bold;
-
-  @media (max-width: ${theme.devices.tablet}px){
-    /*font-size:${props => props.smallMobile ? '2.3em':'3em'}*/
-}
-  
-`
-
-const StyledFieldSet = styled.div`
-  display:flex;
-  justify-content:space-around;
-  flex-wrap:wrap;
-  margin-bottom:1em;
-  `
-
-const FlexDiv = styled.div`
-  width:auto;
-  flex:0 0 50%;
-  display:flex;
-  flex-wrap:wrap;
-  padding:10px;
-
-  position:relative;
-  animation-name:${props => props.animate ? errorAnimation:''};
-  animation-duration:.1s;
-  animation-iteration-count:3;
-  
- 
-  `
-
-const StyledInput = styled.input`
-  flex:1 0 100%;
-  flex-wrap:wrap;
-  padding:10px;
-  border-radius:5px;
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-  border:none;  
-`
-
-const StyledTextArea = styled.textarea`
-  min-height:100px;
-  flex:1 0 100%;
-  flex-wrap:wrap;
-  padding:10px;
-  border-radius:5px;
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-  border:none;
-  
-  
-`
-
-const StyledLabel = styled.label`
-  flex:1;
-  font-style:italic;
-  font-size:.8em;
-  color:${theme.primaryText};
-`
-
-const RadioInput = styled.input`
-padding:10px;
-margin-left:1em;
-color:${theme.primaryText};
-
-@media (max-width: ${theme.devices.tablet}px){
-  ${props => props.removeLeftMargin ? 'margin-left:0;':''}
-}
-`
-
-const SubmitButton = styled.input`
-  flex: 0 0 auto;
-  display:inline-block;
-  min-width:100px;
-  min-height:50px;
-  background-color:${theme.primaryAccent};
-  border:none;
-  color:${theme.primaryBackground};
-  font-weight:bold;
-  text-decoration:none;
-  text-align:center;
-  line-height:50px;
-  border-radius: 10px;
-  box-shadow:1px 2px ${theme.primaryText};
-  
-  &:hover {
-      background-color:${theme.secondaryAccent};
-      box-shadow:0px 0px;
-      cursor:pointer;
-  }
-`
-
-const StyledP = styled.p`
-  margin-bottom:.25em;
-`
-
-const SmallP = styled.p`
-  margin-bottom:1em;
-  font-size:.75em;
-  font-style:italic;
-
-  animation-name:${props => props.animate ? textErrorAnimation:''};
-  animation-duration:1s;
-  animation-iteration-count:1;
-
-  ${props => {
-    if(props.mobile){
-     return ( `@media (max-width: ${theme.devices.tablet}px){
-        text-align:center;
-        width:70%;
-    }`)
-    }
-  }}
-
-
-  
-`
-
-const StyledHR = styled.hr`
-  margin-bottom:.5em;
-`
-
-const GuestSpan = styled.span`
-  min-width:225px;
-  display:inline-block;
-
-  @media (max-width: ${theme.devices.mobileL}px){
-    display:block;
-`
 
 const HiddenForm = styled.form`
   display:none;
@@ -239,15 +103,6 @@ class Rsvp extends React.Component {
       g5food:'',
         //can continue on for more guests in an rsvp group
     }
-
-    //pre-mount functions
-    if(typeof window !== 'undefined' && window.localStorage.getItem('rsvp')){
-      const previousResponse = JSON.parse(localStorage.getItem('rsvp'))
-      if(previousResponse){
-        console.log(`Hey ${previousResponse.guestFirstName}, you've already RSVPd! If you think you've made a mistake, send Hayden or Chloe an email and they'll get it sorted out.`)
-        this.state = previousResponse;
-      }
-    }
     
     //binders
     this.handleChange = this.handleChange.bind(this);
@@ -264,15 +119,28 @@ class Rsvp extends React.Component {
     }  
   }
 
+  componentDidMount(){
+   
+    if(typeof window !== 'undefined' && window.localStorage.getItem('rsvp')){
+      const previousResponse = JSON.parse(localStorage.getItem('rsvp'))
+      if(previousResponse){
+        console.log(`Hey ${previousResponse.guestFirstName}, you've already RSVPd! If you think you've made a mistake, send Hayden or Chloe an email and they'll get it sorted out.`)
+        this.setState(previousResponse);
+
+      }
+    }
+  }
+
   
   //Custom Methods
   validateGuest(e) {
    e.preventDefault()
    const data = new FormData(e.target);
    const name = data.get('fname') + ' ' + data.get('lname');
-   
-   guestList.invited.map(guestGroup => {
-    const invited = guestGroup.map(guest => name.toLowerCase() === guest.toLowerCase() ? true:false).includes(true);
+
+   let invited;
+   guestList.invited.forEach(guestGroup => {
+    invited = guestGroup.map(guest => name.toLowerCase() === guest.toLowerCase() ? true:false).includes(true);
     
     if(invited){
       this.setState({
@@ -282,7 +150,7 @@ class Rsvp extends React.Component {
         guestFirstName:data.get('fname'),
         guestLastName:data.get('lname'),
         inputError:false,
-      })
+      },() => console.log(this.state))
     }else{
       this.setState({
         inputError:true,
@@ -315,6 +183,8 @@ class Rsvp extends React.Component {
     guestGroup.forEach((guest,i) => {
       postState[`g${i}name`] = guest;
     })
+
+    postState.responded=true;
     
     fetch("/", {
       method: "POST",
@@ -327,7 +197,7 @@ class Rsvp extends React.Component {
       .then(() => {
         navigate(form.getAttribute("action"))
         if(typeof window !== 'undefined'){
-          this.setState({responded:true},() => localStorage.setItem('rsvp',JSON.stringify(this.state)))
+          this.setState(postState,() => localStorage.setItem('rsvp',JSON.stringify(this.state)))
         }
         
       })
@@ -336,112 +206,10 @@ class Rsvp extends React.Component {
     
   };
 
+
+
     render() {
-
-      let FormData;
-      if(!this.state.invited){
-        FormData = (
-          <RsvpForm onSubmit={this.validateGuest}>
-            <StyledFieldSet>
-                <FlexDiv animate={this.state.inputError}>
-                  <StyledInput type="text" id="fname" name="fname" required/>
-                  <StyledLabel htmlFor="fname">First name</StyledLabel>
-                </FlexDiv>
-                <FlexDiv animate={this.state.inputError}>
-                  <StyledInput type="text" id="lname" name="lname" required /> 
-                  <StyledLabel htmlFor="lname">Last name</StyledLabel>
-                </FlexDiv>
-                <SmallP animate={this.state.inputError} mobile={true}>Please enter your name as it appears on your invitation</SmallP>
-              </StyledFieldSet>
-              <StyledFieldSet>
-                <SubmitButton type="submit" value="Submit"/>
-              </StyledFieldSet> 
-          </RsvpForm>
-        )
-      }else{
-        FormData = (
-          <RsvpForm onSubmit={this.handleSubmit} method="post" action="/thankyou" data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact" />
-          <p hidden><input name="bot-field"></input></p>
-          <StyledP>Name<sup>*</sup></StyledP>
-            <StyledFieldSet>
-              <FlexDiv>
-                <StyledInput type="text" id="fname" name="fname"  value={this.state.guestFirstName} required/>
-                <StyledLabel htmlFor="fname">First name</StyledLabel>
-              </FlexDiv>
-              <FlexDiv>
-                <StyledInput type="text" id="lname" name="lname" value={this.state.guestLastName} requried /> 
-                <StyledLabel htmlFor="lname">Last name</StyledLabel>
-              </FlexDiv>
-            </StyledFieldSet>
-            <StyledHR />
-            <StyledP>Email<sup>*</sup></StyledP>
-            <StyledFieldSet>
-              <StyledInput type="text" id="email" name="email" defaultValue={this.state.email} onChange={this.handleChange} required />
-            </StyledFieldSet>
-            <StyledHR />
-            <StyledP>Who will be attending?<sup>*</sup></StyledP>
-            <SmallP>Select one option per guest</SmallP>
-            <div>
-              {this.state.guestGroup.map((guest,i) => {
-                return (
-                <StyledP key={'p'+i}>
-                <GuestSpan>{guest}</GuestSpan>
-                <span>
-                  <RadioInput key={'radioyes' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'yes'} value="yes" onChange={this.handleChange} checked={this.state[`g${i}rsvp`] == 'yes' ? true:false} removeLeftMargin required/>
-                    <StyledLabel key={'labelyes'+i} htmlFor={guest + 'yes'}>Yes</StyledLabel>
-                  </span>
-                  <span>
-                    <RadioInput key={'radiono' + i} type="radio" name={'g' + i + 'rsvp'} id={guest + 'no'} value="no" onChange={this.handleChange} checked={this.state[`g${i}rsvp`] == 'no' ? true:false} />
-                    <StyledLabel key={'labelno'+i}htmlFor={guest + 'no'}>No</StyledLabel>
-                  </span>
-                </StyledP>
-                )
-              })
-              }
-            </div>
-            <div>
-            <StyledHR />
-            <StyledP>What would you like to eat?<sup>*</sup></StyledP>
-            <SmallP>Select one option for each guest</SmallP>
-              {this.state.guestGroup.map((guest,i) => {
-                if(this.state[`g${i}rsvp`] === 'no'){
-                  return <span key={`empty${i}`} />
-                }else{
-                  return (
-                  <StyledP key={'p'+i}>
-                    <GuestSpan>{guest}</GuestSpan>  
-                    <span>
-                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" checked={this.state[`g${i}food`] == 'chicken' ? true:false} onChange={this.handleChange} removeLeftMargin required />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radiosteak' + i} type="radio" name={'g' + i + 'food'} id={guest + 'steak'} value="steak" checked={this.state[`g${i}food`] == 'steak' ? true:false} onChange={this.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'steak'}>Steak</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" checked={this.state[`g${i}food`] == 'veggie' ? true:false} onChange={this.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
-                    </span>
-                  </StyledP>
-                  )
-                }
-              })
-              }
-            </div>
-            <StyledHR />  
-            <StyledP>Message</StyledP>
-            <StyledFieldSet>
-              <StyledTextArea type="textarea" id="message" name="message" rows={5} defaultValue={this.state.message} onChange={this.handleChange} />
-            </StyledFieldSet>
-            
-            <StyledFieldSet>
-              {this.state.responded ? <SubmitButton type="submit" value="Update" />:<SubmitButton type="submit" value="Submit" />}
-            </StyledFieldSet> 
-
-        </RsvpForm> 
-        )
-      }
+      
       return (
   //!Fieldset and legends did not play nicely with flexbox. Need to revisit
       <Layout>
@@ -449,7 +217,68 @@ class Rsvp extends React.Component {
         <FlexContainer>
           <ContentWrapper>
             <Header>RSVP</Header>
-            {FormData}
+            <RsvpInitial
+            validateGuest={this.validateGuest} 
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            invited={this.state.invited} 
+            inputError={this.state.inputError}
+            guestFirstName={this.state.guestFirstName}
+            guestLastName={this.state.guestLastName}
+            guestGroup={this.state.guestGroup}
+            g0name={this.state.g0name}
+            g0food={this.state.g0food}
+            g0rsvp={this.state.g0rsvp}
+            g1name={this.state.g1name}
+            g1food={this.state.g1food}
+            g1rsvp={this.state.g1rsvp}
+            g2name={this.state.g2name}
+            g2food={this.state.g2food}
+            g2rsvp={this.state.g2rsvp}
+            g3name={this.state.g3name}
+            g3food={this.state.g3food}
+            g3rsvp={this.state.g3rsvp}
+            g4name={this.state.g4name}
+            g4food={this.state.g4food}
+            g4rsvp={this.state.g4rsvp}
+            g5name={this.state.g5name}
+            g5food={this.state.g5food}
+            g5rsvp={this.state.g5rsvp}
+            message={this.state.message}
+            responded={this.state.responded}
+            email={this.state.email}
+            />
+             <RsvpSecondary
+            validateGuest={this.validateGuest} 
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            invited={this.state.invited} 
+            inputError={this.state.inputError}
+            guestFirstName={this.state.guestFirstName}
+            guestLastName={this.state.guestLastName}
+            guestGroup={this.state.guestGroup}
+            g0name={this.state.g0name}
+            g0food={this.state.g0food}
+            g0rsvp={this.state.g0rsvp}
+            g1name={this.state.g1name}
+            g1food={this.state.g1food}
+            g1rsvp={this.state.g1rsvp}
+            g2name={this.state.g2name}
+            g2food={this.state.g2food}
+            g2rsvp={this.state.g2rsvp}
+            g3name={this.state.g3name}
+            g3food={this.state.g3food}
+            g3rsvp={this.state.g3rsvp}
+            g4name={this.state.g4name}
+            g4food={this.state.g4food}
+            g4rsvp={this.state.g4rsvp}
+            g5name={this.state.g5name}
+            g5food={this.state.g5food}
+            g5rsvp={this.state.g5rsvp}
+            message={this.state.message}
+            responded={this.state.responded}
+            email={this.state.email}
+            />
           </ContentWrapper>
         </FlexContainer>
         <HiddenForm onSubmit={null} method="post" action="/thankyou" data-netlify="true" name="rsvp" data-netlify-honeypot="bot-field">

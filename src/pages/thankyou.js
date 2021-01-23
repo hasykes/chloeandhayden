@@ -42,11 +42,6 @@ const Header = styled.h1`
   
 `
 
-const CenterP = styled.p`
-  text-align:center;
-  color:${theme.primaryText};
-`
-
 const FlexP = styled.p`
     display:flex;
     align-items:center;
