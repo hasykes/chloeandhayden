@@ -192,9 +192,9 @@ return(
                     <InnerBox height='70%' mobileHeight='90%'>
                     <NormalWords><VenueLink target="_blank" rel="noopener noreferrer" href={siteMetadata.weddingInfo.gmapsLink}>The Factory<br/>5616 New Peachtree Rd, Chamblee, GA 30341</VenueLink></NormalWords>
                     
-                    <NormalWords> <PopTime>6</PopTime><PopTime2>pm</PopTime2> Ceremoney</NormalWords>
+                    <NormalWords> <PopTime>6</PopTime><PopTime2>pm</PopTime2> Ceremony</NormalWords>
                     <NormalWords><PopTime>6:30</PopTime><PopTime2>pm</PopTime2> Cocktails</NormalWords>
-                    <NormalWords><PopTime>7</PopTime><PopTime2>pm</PopTime2> Reception</NormalWords>
+                    <NormalWords><PopTime>7</PopTime><PopTime2>pm</PopTime2> Dinner & Dancing</NormalWords>
                     </InnerBox>
                 </Box>
                 <Box order={3} color='light' mobileColor="dark">
