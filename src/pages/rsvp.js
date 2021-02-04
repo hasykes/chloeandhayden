@@ -136,7 +136,7 @@ class Rsvp extends React.Component {
   validateGuest(e) {
    e.preventDefault()
    const data = new FormData(e.target);
-   const name = data.get('fname') + ' ' + data.get('lname');
+   const name = data.get('fname').trim() + ' ' + data.get('lname').trim();
 
    let invited;
    guestList.invited.forEach(guestGroup => {
