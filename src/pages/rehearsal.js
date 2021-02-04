@@ -169,11 +169,11 @@ class Rehearsal extends React.Component {
   //Custom Methods
   validateGuest(e) {
    e.preventDefault()
-   const data = new FormData(e.target);
-   const name = data.get('fname') + ' ' + data.get('lname');
+    const data = new FormData(e.target);
+    const name = data.get('fname').trim() + ' ' + data.get('lname').trim();
 
-   let invited;
-   rehearsalGuestList.invited.forEach(guestGroup => {
+    let invited;
+    rehearsalGuestList.invited.forEach(guestGroup => {
     invited = guestGroup.map(guest => name.toLowerCase() === guest.toLowerCase() ? true:false).includes(true);
     
     if(invited){
@@ -235,9 +235,7 @@ class Rehearsal extends React.Component {
         }
         
       })
-      .catch(error => alert("Something went wrong.  Please contact Hayden to finish up your rehearsal RSVP. Error: " + error));
-
-    
+      .catch(error => alert("Something went wrong.  Please contact Hayden to finish up your rehearsal RSVP. Error: " + error)); 
   };
 
 
@@ -386,8 +384,6 @@ class Rehearsal extends React.Component {
             <input type="text" name="g5entree" />
             <input type="text" name="g5salad" />
             <input type="text" name="g5dessert" />
-            
-            
             <input type="text" name="numOfGuests" />
         </HiddenForm>
       </Layout>
