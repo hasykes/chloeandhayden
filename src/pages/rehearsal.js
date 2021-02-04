@@ -101,22 +101,40 @@ class Rehearsal extends React.Component {
       message:'',
       g0name:'',
       g0rsvp:'',
-      g0food:'',
+      g0app:'', 
+      g0entree:'',
+      g0salad:'',
+      g0dessert:'',
       g1name:'',
       g1rsvp:'',
-      g1food:'',
+      g1app:'', 
+      g1entree:'',
+      g1salad:'',
+      g1dessert:'',
       g2name:'',
       g2rsvp:'',
-      g2food:'',
+      g2app:'', 
+      g2entree:'',
+      g2salad:'',
+      g2dessert:'',
       g3name:'',
       g3rsvp:'',
-      g3food:'',
+      g3app:'', 
+      g3entree:'',
+      g3salad:'',
+      g3dessert:'',
       g4name:'',
       g4rsvp:'',
-      g4food:'',
+      g4app:'', 
+      g4entree:'',
+      g4salad:'',
+      g4dessert:'',
       g5name:'',
       g5rsvp:'',
-      g5food:'',
+      g5app:'', 
+      g5entree:'',
+      g5salad:'',
+      g5dessert:'',
         //can continue on for more guests in an rsvp group
     }
     
@@ -249,7 +267,7 @@ class Rehearsal extends React.Component {
             g0entree = {this.state.g0entree}
             g0salad  = {this.state.g0salad }
             g0dessert = {this.state.g0dessert}
-            g1namw = {this.state.g1namw}
+            g1name = {this.state.g1namw}
             g1rsvp = {this.state.g1rsvp}
             g1app = {this.state.g1app}
             g1entree = {this.state.g1entree}
