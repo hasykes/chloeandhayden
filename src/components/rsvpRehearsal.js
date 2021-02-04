@@ -146,7 +146,7 @@ const RsvpRehearsal = (props) => {
 
         if(!props.invited){return <></>}
         return (
-          <RsvpForm id="secondaryForm" onSubmit={props.handleSubmit} method="post" action="/thankyou" data-netlify="true" name="rehearsal" data-netlify-honeypot="bot-field">
+          <RsvpForm id="rehearsalForm" onSubmit={props.handleSubmit} method="post" action="/thankyou" data-netlify="true" name="rehearsal" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p hidden><input name="bot-field"></input></p>
           <StyledP>Name<sup>*</sup></StyledP>
@@ -159,11 +159,6 @@ const RsvpRehearsal = (props) => {
                 <StyledInput type="text" id="lname" name="lname" value={props.guestLastName} requried /> 
                 <StyledLabel htmlFor="lname">Last name</StyledLabel>
               </FlexDiv>
-            </StyledFieldSet2>
-            <StyledHR />
-            <StyledP>Email<sup>*</sup></StyledP>
-            <StyledFieldSet2>
-              <StyledInput type="text" id="email" name="email" defaultValue={props.email} onChange={props.handleChange} required />
             </StyledFieldSet2>
             <StyledHR />
             <StyledP>Who will be attending?<sup>*</sup></StyledP>
@@ -188,7 +183,36 @@ const RsvpRehearsal = (props) => {
             </div>
             <div>
             <StyledHR />
-            <StyledP>What would you like to eat?<sup>*</sup></StyledP>
+            <StyledP>Appetizer<sup>*</sup></StyledP>
+            <SmallP>Select one option for each guest</SmallP>
+              {props.guestGroup.map((guest,i) => {
+                if(props[`g${i}rsvp`] === 'no'){
+                  return <span key={`empty${i}`} />
+                }else{
+                  return (
+                  <StyledP key={'p'+i}>
+                    <GuestSpan>{guest}</GuestSpan>  
+                    <span>
+                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'app'} id={guest + 'chicken'} value="chicken" checked={props[`g${i}food`] === 'chicken' ? true:false} onChange={props.handleChange} removeLeftMargin required />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
+                    </span>
+                    <span>
+                      <RadioInput key={'radiosteak' + i} type="radio" name={'g' + i + 'food'} id={guest + 'steak'} value="steak" checked={props[`g${i}food`] === 'steak' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'steak'}>Steak</StyledLabel>
+                    </span>
+                    <span>
+                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" checked={props[`g${i}food`] === 'veggie' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
+                    </span>
+                  </StyledP>
+                  )
+                }
+              })
+              }
+            </div> 
+            <div>
+            <StyledHR />
+            <StyledP>Salad<sup>*</sup></StyledP>
             <SmallP>Select one option for each guest</SmallP>
               {props.guestGroup.map((guest,i) => {
                 if(props[`g${i}rsvp`] === 'no'){
@@ -215,12 +239,67 @@ const RsvpRehearsal = (props) => {
               })
               }
             </div>
-            <StyledHR />  
-            <StyledP>Message</StyledP>
-            <StyledFieldSet2>
-              <StyledTextArea type="textarea" id="message" name="message" rows={5} defaultValue={props.message} onChange={props.handleChange} />
-            </StyledFieldSet2>
+            <div>
+            <StyledHR />
+            <StyledP>Entree<sup>*</sup></StyledP>
+            <SmallP>Select one option for each guest</SmallP>
+              {props.guestGroup.map((guest,i) => {
+                if(props[`g${i}rsvp`] === 'no'){
+                  return <span key={`empty${i}`} />
+                }else{
+                  return (
+                  <StyledP key={'p'+i}>
+                    <GuestSpan>{guest}</GuestSpan>  
+                    <span>
+                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" checked={props[`g${i}food`] === 'chicken' ? true:false} onChange={props.handleChange} removeLeftMargin required />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
+                    </span>
+                    <span>
+                      <RadioInput key={'radiosteak' + i} type="radio" name={'g' + i + 'food'} id={guest + 'steak'} value="steak" checked={props[`g${i}food`] === 'steak' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'steak'}>Steak</StyledLabel>
+                    </span>
+                    <span>
+                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" checked={props[`g${i}food`] === 'veggie' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
+                    </span>
+                  </StyledP>
+                  )
+                }
+              })
+              }
+            </div>
+            <div>
+            <StyledHR />
+            <StyledP>Dessert<sup>*</sup></StyledP>
+            <SmallP>Select one option for each guest</SmallP>
+              {props.guestGroup.map((guest,i) => {
+                if(props[`g${i}rsvp`] === 'no'){
+                  return <span key={`empty${i}`} />
+                }else{
+                  return (
+                  <StyledP key={'p'+i}>
+                    <GuestSpan>{guest}</GuestSpan>  
+                    <span>
+                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" checked={props[`g${i}food`] === 'chicken' ? true:false} onChange={props.handleChange} removeLeftMargin required />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
+                    </span>
+                    <span>
+                      <RadioInput key={'radiosteak' + i} type="radio" name={'g' + i + 'food'} id={guest + 'steak'} value="steak" checked={props[`g${i}food`] === 'steak' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'steak'}>Steak</StyledLabel>
+                    </span>
+                    <span>
+                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" checked={props[`g${i}food`] === 'veggie' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
+                    </span>
+                  </StyledP>
+                  )
+                }
+              })
+              }
+            </div>
+
             
+
             <StyledFieldSet2>
               {props.responded ? <SubmitButton type="submit" value="Update" />:<SubmitButton type="submit" value="Submit" />}
             </StyledFieldSet2> 

@@ -243,27 +243,43 @@ class Rehearsal extends React.Component {
             guestFirstName={this.state.guestFirstName}
             guestLastName={this.state.guestLastName}
             guestGroup={this.state.guestGroup}
-            g0name={this.state.g0name}
-            g0food={this.state.g0food}
-            g0rsvp={this.state.g0rsvp}
-            g1name={this.state.g1name}
-            g1food={this.state.g1food}
-            g1rsvp={this.state.g1rsvp}
-            g2name={this.state.g2name}
-            g2food={this.state.g2food}
-            g2rsvp={this.state.g2rsvp}
-            g3name={this.state.g3name}
-            g3food={this.state.g3food}
-            g3rsvp={this.state.g3rsvp}
-            g4name={this.state.g4name}
-            g4food={this.state.g4food}
-            g4rsvp={this.state.g4rsvp}
-            g5name={this.state.g5name}
-            g5food={this.state.g5food}
-            g5rsvp={this.state.g5rsvp}
-            message={this.state.message}
+            g0name = {this.state.g0name}
+            g0rsvp = {this.state.g0rsvp}
+            g0app = {this.state.g0app}
+            g0entree = {this.state.g0entree}
+            g0salad  = {this.state.g0salad }
+            g0dessert = {this.state.g0dessert}
+            g1namw = {this.state.g1namw}
+            g1rsvp = {this.state.g1rsvp}
+            g1app = {this.state.g1app}
+            g1entree = {this.state.g1entree}
+            g1salad  = {this.state.g1salad }
+            g1dessert = {this.state.g1dessert}
+            g2name = {this.state.g2name}
+            g2rsvp = {this.state.g2rsvp}
+            g2app = {this.state.g2app}
+            g2entree = {this.state.g2entree}
+            g2salad  = {this.state.g2salad }
+            g2dessert = {this.state.g2dessert}
+            g3name = {this.state.g3name}
+            g3rsvp = {this.state.g3rsvp}
+            g3app = {this.state.g3app}
+            g3entree = {this.state.g3entree}
+            g3salad  = {this.state.g3salad }
+            g3dessert = {this.state.g3dessert}
+            g4name = {this.state.g4name}
+            g4rsvp = {this.state.g4rsvp}
+            g4app = {this.state.g4app}
+            g4entree = {this.state.g4entree}
+            g4salad = {this.state.g4salad}
+            g4dessert = {this.state.g4dessert}
+            g5name = {this.state.g5name}
+            g5rsvp = {this.state.g5rsvp}
+            g5app = {this.state.g5app}
+            g5entree = {this.state.g5entree}
+            g5salad  = {this.state.g5salad }
+            g5dessert = {this.state.g5dessert}
             responded={this.state.responded}
-            email={this.state.email}
             />
              <RsvpRehearsal
             validateGuest={this.validateGuest} 
@@ -274,52 +290,86 @@ class Rehearsal extends React.Component {
             guestFirstName={this.state.guestFirstName}
             guestLastName={this.state.guestLastName}
             guestGroup={this.state.guestGroup}
-            g0name={this.state.g0name}
-            g0food={this.state.g0food}
-            g0rsvp={this.state.g0rsvp}
-            g1name={this.state.g1name}
-            g1food={this.state.g1food}
-            g1rsvp={this.state.g1rsvp}
-            g2name={this.state.g2name}
-            g2food={this.state.g2food}
-            g2rsvp={this.state.g2rsvp}
-            g3name={this.state.g3name}
-            g3food={this.state.g3food}
-            g3rsvp={this.state.g3rsvp}
-            g4name={this.state.g4name}
-            g4food={this.state.g4food}
-            g4rsvp={this.state.g4rsvp}
-            g5name={this.state.g5name}
-            g5food={this.state.g5food}
-            g5rsvp={this.state.g5rsvp}
-            message={this.state.message}
+            g0name = {this.state.g0name}
+            g0rsvp = {this.state.g0rsvp}
+            g0app = {this.state.g0app}
+            g0entree = {this.state.g0entree}
+            g0salad  = {this.state.g0salad }
+            g0dessert = {this.state.g0dessert}
+            g1namw = {this.state.g1namw}
+            g1rsvp = {this.state.g1rsvp}
+            g1app = {this.state.g1app}
+            g1entree = {this.state.g1entree}
+            g1salad  = {this.state.g1salad }
+            g1dessert = {this.state.g1dessert}
+            g2name = {this.state.g2name}
+            g2rsvp = {this.state.g2rsvp}
+            g2app = {this.state.g2app}
+            g2entree = {this.state.g2entree}
+            g2salad  = {this.state.g2salad }
+            g2dessert = {this.state.g2dessert}
+            g3name = {this.state.g3name}
+            g3rsvp = {this.state.g3rsvp}
+            g3app = {this.state.g3app}
+            g3entree = {this.state.g3entree}
+            g3salad  = {this.state.g3salad }
+            g3dessert = {this.state.g3dessert}
+            g4name = {this.state.g4name}
+            g4rsvp = {this.state.g4rsvp}
+            g4app = {this.state.g4app}
+            g4entree = {this.state.g4entree}
+            g4salad = {this.state.g4salad}
+            g4dessert = {this.state.g4dessert}
+            g5name = {this.state.g5name}
+            g5rsvp = {this.state.g5rsvp}
+            g5app = {this.state.g5app}
+            g5entree = {this.state.g5entree}
+            g5salad  = {this.state.g5salad }
+            g5dessert = {this.state.g5dessert}
             responded={this.state.responded}
-            email={this.state.email}
             />
           </ContentWrapper>
         </FlexContainer>
         <HiddenForm onSubmit={null} method="post" action="/thankyou" data-netlify="true" name="rehearsal" data-netlify-honeypot="bot-field">
             <input type="hidden" name="rehearsal" value="Click Here" />
-            <input type="text" name="email" />
-            <input type="text" name="message" />
             <input type="text" name="g0name" />
             <input type="text" name="g0rsvp" />
-            <input type="text" name="g0food" />
+            <input type="text" name="g0app" />
+            <input type="text" name="g0entree" />
+            <input type="text" name="g0salad" />
+            <input type="text" name="g0dessert" />
             <input type="text" name="g1name" />
             <input type="text" name="g1rsvp" />
-            <input type="text" name="g1food" />
+            <input type="text" name="g1app" />
+            <input type="text" name="g1entree" />
+            <input type="text" name="g1salad" />
+            <input type="text" name="g1dessert" />
             <input type="text" name="g2name" />
             <input type="text" name="g2rsvp" />
-            <input type="text" name="g2food" />
+            <input type="text" name="g2app" />
+            <input type="text" name="g2entree" />
+            <input type="text" name="g2salad" />
+            <input type="text" name="g2dessert" />
             <input type="text" name="g3name" />
             <input type="text" name="g3rsvp" />
-            <input type="text" name="g3food" />
+            <input type="text" name="g3app" />
+            <input type="text" name="g3entree" />
+            <input type="text" name="g3salad" />
+            <input type="text" name="g3dessert" />
             <input type="text" name="g4name" />
             <input type="text" name="g4rsvp" />
-            <input type="text" name="g4food" />
+            <input type="text" name="g4app" />
+            <input type="text" name="g4entree" />
+            <input type="text" name="g4salad" />
+            <input type="text" name="g4dessert" />
             <input type="text" name="g5name" />
             <input type="text" name="g5rsvp" />
-            <input type="text" name="g5food" />
+            <input type="text" name="g5app" />
+            <input type="text" name="g5entree" />
+            <input type="text" name="g5salad" />
+            <input type="text" name="g5dessert" />
+            
+            
             <input type="text" name="numOfGuests" />
         </HiddenForm>
       </Layout>
