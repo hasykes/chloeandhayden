@@ -151,6 +151,19 @@ const NormalWords = styled.p`
     flex:0 0 auto;
 `
 
+const Attire = styled.p`
+    color:${theme.primaryAccent};
+    font-size:1em;
+    font-variant:small-caps;
+    width:100%;
+    text-align:center;
+    padding:0;
+    margin:0;
+    flex:0 0 auto;
+
+    font-weight:bold;
+`
+
 const PopTime = styled.span`
     font-size:2.5em;
     color:${theme.primaryAccent};
@@ -195,6 +208,7 @@ return(
                     <NormalWords> <PopTime>6</PopTime><PopTime2>pm</PopTime2> Ceremony</NormalWords>
                     <NormalWords><PopTime>6:30</PopTime><PopTime2>pm</PopTime2> Cocktails</NormalWords>
                     <NormalWords><PopTime>7</PopTime><PopTime2>pm</PopTime2> Dinner & Dancing</NormalWords>
+                    <Attire>Cocktail Attire</Attire>
                     </InnerBox>
                 </Box>
                 <Box order={3} color='light' mobileColor="dark">
