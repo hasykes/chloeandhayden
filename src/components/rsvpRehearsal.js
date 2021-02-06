@@ -223,16 +223,16 @@ const RsvpRehearsal = (props) => {
                   <StyledP key={'p'+i}>
                     <GuestSpan>{guest}</GuestSpan>  
                     <div>
-                      <RadioInput key={'radioSM' + i} type="radio" name={'g' + i + 'dressing'} id={guest + 'maple'} value="maple" checked={props[`g${i}salad`] === 'maple' ? true:false} onChange={props.handleChange} removeLeftMargin required />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'maple'}>Maple roasted garlic</StyledLabel>
+                      <RadioInput key={'radioSM' + i} type="radio" name={'g' + i + 'salad'} id={guest + 'maple' + i} value="maple" checked={props[`g${i}salad`] === 'maple' ? true:false} onChange={props.handleChange} removeLeftMargin required />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'maple' + i}>Maple roasted garlic</StyledLabel>
                     </div>
                     <div>
-                      <RadioInput key={'radioSR' + i} type="radio" name={'g' + i + 'dressing'} id={guest + 'ranch'} value="ranch" checked={props[`g${i}salad`] === 'ranch' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'ranch'}>Ranch</StyledLabel>
+                      <RadioInput key={'radioSR' + i} type="radio" name={'g' + i + 'salad'} id={guest + 'ranch' + i} value="ranch" checked={props[`g${i}salad`] === 'ranch' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'ranch' + i}>Ranch</StyledLabel>
                     </div>
                     <div>
-                      <RadioInput key={'radioSC' + i} type="radio" name={'g' + i + 'dressing'} id={guest + 'citrus'} value="citrus" checked={props[`g${i}salad`] === 'citrus' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'citrus'}>Citrus herb</StyledLabel>
+                      <RadioInput key={'radioSC' + i} type="radio" name={'g' + i + 'salad'} id={guest + 'citrus' + i} value="citrus" checked={props[`g${i}salad`] === 'citrus' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'citrus' + i}>Citrus herb</StyledLabel>
                     </div>
                   </StyledP>
                   )
@@ -252,16 +252,16 @@ const RsvpRehearsal = (props) => {
                   <StyledP key={'p'+i}>
                     <GuestSpan>{guest}</GuestSpan>  
                     <div>
-                      <RadioInput key={'radioDS' + i} type="radio" name={'g' + i + 'entree'} id={guest + 'scallop'} value="scallop" checked={props[`g${i}entree`] === 'scallop' ? true:false} onChange={props.handleChange} removeLeftMargin required />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'scallop'}>Seared Scallop with house-made tortellini, fried shallot, lemon cream, local arugula</StyledLabel>
+                      <RadioInput key={'radioDS' + i} type="radio" name={'g' + i + 'entree'} id={guest + 'scallop' + i} value="scallop" checked={props[`g${i}entree`] === 'scallop' ? true:false} onChange={props.handleChange} removeLeftMargin required />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'scallop' + i}>Seared Scallop with house-made tortellini, fried shallot, lemon cream, local arugula</StyledLabel>
                     </div>
                     <div>
-                      <RadioInput key={'radioDR' + i} type="radio" name={'g' + i + 'entree'} id={guest + 'risotto'} value="risotto" checked={props[`g${i}entree`] === 'risotto' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'risotto'}>Risotto with roasted beet, wild mushroom, humbolt fog cheese, herbs</StyledLabel>
+                      <RadioInput key={'radioDR' + i} type="radio" name={'g' + i + 'entree'} id={guest + 'risotto' + i} value="risotto" checked={props[`g${i}entree`] === 'risotto' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'risotto' + i}>Risotto with roasted beet, wild mushroom, humbolt fog cheese, herbs</StyledLabel>
                     </div>
                     <div>
-                      <RadioInput key={'radioDC' + i} type="radio" name={'g' + i + 'entree'} id={guest + 'chicken'} value="chicken" checked={props[`g${i}entree`] === 'chicken' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Airline chicken breast with crispy smashed fingerling potatoes, wilted greens, pan jus</StyledLabel>
+                      <RadioInput key={'radioDC' + i} type="radio" name={'g' + i + 'entree'} id={guest + 'chicken' + i} value="chicken" checked={props[`g${i}entree`] === 'chicken' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken' + i}>Airline chicken breast with crispy smashed fingerling potatoes, wilted greens, pan jus</StyledLabel>
                     </div>
                   </StyledP>
                   )
