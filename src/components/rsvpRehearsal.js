@@ -106,6 +106,7 @@ color:${theme.primaryText};
 
 const StyledP = styled.p`
   margin-bottom:.25em;
+  color:${theme.primaryText}
 `
 
 const SmallP = styled.p`
@@ -192,18 +193,18 @@ const RsvpRehearsal = (props) => {
                   return (
                   <StyledP key={'p'+i}>
                     <GuestSpan>{guest}</GuestSpan>  
-                    <span>
-                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'app'} id={guest + 'chicken'} value="chicken" checked={props[`g${i}food`] === 'chicken' ? true:false} onChange={props.handleChange} removeLeftMargin required />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radiosteak' + i} type="radio" name={'g' + i + 'food'} id={guest + 'steak'} value="steak" checked={props[`g${i}food`] === 'steak' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'steak'}>Steak</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" checked={props[`g${i}food`] === 'veggie' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
-                    </span>
+                    <div>
+                      <RadioInput key={'radioAC' + i} type="radio" name={'g' + i + 'app'} id={guest + 'radioAC'+i} value="cauli" checked={props[`g${i}app`] === 'cauli' ? true:false} onChange={props.handleChange} removeLeftMargin required />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'radioAC'+i}>Fried Cauliflower with garlic aioli, caper, mint</StyledLabel>
+                    </div>
+                    <div>
+                      <RadioInput key={'radioAM' + i} type="radio" name={'g' + i + 'app'} id={guest + 'radioAM'+i} value="mussels" checked={props[`g${i}app`] === 'mussels' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'radioAM'+ i}>Mussels with white wine cream sauce, baguette</StyledLabel>
+                    </div>
+                    <div>
+                      <RadioInput key={'radioAB' + i} type="radio" name={'g' + i + 'app'} id={guest + 'radioAB'+i} value="beef" checked={props[`g${i}app`] === 'beef' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'radioAB'+ i}>Beef tartare, cured egg, pickled mustard seed, potato chips</StyledLabel>
+                    </div>
                   </StyledP>
                   )
                 }
@@ -212,7 +213,7 @@ const RsvpRehearsal = (props) => {
             </div> 
             <div>
             <StyledHR />
-            <StyledP>Salad<sup>*</sup></StyledP>
+            <StyledP>Salad Dressing<sup>*</sup></StyledP>
             <SmallP>Select one option for each guest</SmallP>
               {props.guestGroup.map((guest,i) => {
                 if(props[`g${i}rsvp`] === 'no'){
@@ -221,18 +222,18 @@ const RsvpRehearsal = (props) => {
                   return (
                   <StyledP key={'p'+i}>
                     <GuestSpan>{guest}</GuestSpan>  
-                    <span>
-                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" checked={props[`g${i}food`] === 'chicken' ? true:false} onChange={props.handleChange} removeLeftMargin required />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radiosteak' + i} type="radio" name={'g' + i + 'food'} id={guest + 'steak'} value="steak" checked={props[`g${i}food`] === 'steak' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'steak'}>Steak</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" checked={props[`g${i}food`] === 'veggie' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
-                    </span>
+                    <div>
+                      <RadioInput key={'radioSM' + i} type="radio" name={'g' + i + 'dressing'} id={guest + 'maple'} value="maple" checked={props[`g${i}salad`] === 'maple' ? true:false} onChange={props.handleChange} removeLeftMargin required />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'maple'}>Maple roasted garlic</StyledLabel>
+                    </div>
+                    <div>
+                      <RadioInput key={'radioSR' + i} type="radio" name={'g' + i + 'dressing'} id={guest + 'ranch'} value="ranch" checked={props[`g${i}salad`] === 'ranch' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'ranch'}>Ranch</StyledLabel>
+                    </div>
+                    <div>
+                      <RadioInput key={'radioSC' + i} type="radio" name={'g' + i + 'dressing'} id={guest + 'citrus'} value="citrus" checked={props[`g${i}salad`] === 'citrus' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'citrus'}>Citrus herb</StyledLabel>
+                    </div>
                   </StyledP>
                   )
                 }
@@ -250,56 +251,29 @@ const RsvpRehearsal = (props) => {
                   return (
                   <StyledP key={'p'+i}>
                     <GuestSpan>{guest}</GuestSpan>  
-                    <span>
-                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" checked={props[`g${i}food`] === 'chicken' ? true:false} onChange={props.handleChange} removeLeftMargin required />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radiosteak' + i} type="radio" name={'g' + i + 'food'} id={guest + 'steak'} value="steak" checked={props[`g${i}food`] === 'steak' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'steak'}>Steak</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" checked={props[`g${i}food`] === 'veggie' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
-                    </span>
+                    <div>
+                      <RadioInput key={'radioDS' + i} type="radio" name={'g' + i + 'entree'} id={guest + 'scallop'} value="scallop" checked={props[`g${i}entree`] === 'scallop' ? true:false} onChange={props.handleChange} removeLeftMargin required />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'scallop'}>Seared Scallop with house-made tortellini, fried shallot, lemon cream, local arugula</StyledLabel>
+                    </div>
+                    <div>
+                      <RadioInput key={'radioDR' + i} type="radio" name={'g' + i + 'entree'} id={guest + 'risotto'} value="risotto" checked={props[`g${i}entree`] === 'risotto' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'risotto'}>Risotto with roasted beet, wild mushroom, humbolt fog cheese, herbs</StyledLabel>
+                    </div>
+                    <div>
+                      <RadioInput key={'radioDC' + i} type="radio" name={'g' + i + 'entree'} id={guest + 'chicken'} value="chicken" checked={props[`g${i}entree`] === 'chicken' ? true:false} onChange={props.handleChange} />
+                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Airline chicken breast with crispy smashed fingerling potatoes, wilted greens, pan jus</StyledLabel>
+                    </div>
                   </StyledP>
                   )
                 }
               })
               }
             </div>
-            <div>
             <StyledHR />
-            <StyledP>Dessert<sup>*</sup></StyledP>
-            <SmallP>Select one option for each guest</SmallP>
-              {props.guestGroup.map((guest,i) => {
-                if(props[`g${i}rsvp`] === 'no'){
-                  return <span key={`empty${i}`} />
-                }else{
-                  return (
-                  <StyledP key={'p'+i}>
-                    <GuestSpan>{guest}</GuestSpan>  
-                    <span>
-                      <RadioInput key={'radiochicken' + i} type="radio" name={'g' + i + 'food'} id={guest + 'chicken'} value="chicken" checked={props[`g${i}food`] === 'chicken' ? true:false} onChange={props.handleChange} removeLeftMargin required />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'chicken'}>Chicken</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radiosteak' + i} type="radio" name={'g' + i + 'food'} id={guest + 'steak'} value="steak" checked={props[`g${i}food`] === 'steak' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'steak'}>Steak</StyledLabel>
-                    </span>
-                    <span>
-                      <RadioInput key={'radioveggie' + i} type="radio" name={'g' + i + 'food'} id={guest + 'veggie'} value="veggie" checked={props[`g${i}food`] === 'veggie' ? true:false} onChange={props.handleChange} />
-                      <StyledLabel key={'label'+i} htmlFor={guest + 'veggie'}>Vegetarian</StyledLabel>
-                    </span>
-                  </StyledP>
-                  )
-                }
-              })
-              }
-            </div>
-
-            
-
+            <StyledP>Message</StyledP>
+            <StyledFieldSet2>
+              <StyledTextArea type="textarea" id="message" name="message" rows={5} defaultValue={props.message} onChange={props.handleChange} />
+            </StyledFieldSet2>
             <StyledFieldSet2>
               {props.responded ? <SubmitButton type="submit" value="Update" />:<SubmitButton type="submit" value="Submit" />}
             </StyledFieldSet2> 
