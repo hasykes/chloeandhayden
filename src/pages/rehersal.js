@@ -1,4 +1,4 @@
-// redirect for common misspellings
+// redirect for common misspelling
 import { navigate } from 'gatsby'
 
 const Rehersal = () => {
