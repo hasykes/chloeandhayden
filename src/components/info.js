@@ -208,7 +208,6 @@ return(
                     <NormalWords> <PopTime>6</PopTime><PopTime2>pm</PopTime2> Ceremony</NormalWords>
                     <NormalWords><PopTime>6:30</PopTime><PopTime2>pm</PopTime2> Cocktails</NormalWords>
                     <NormalWords><PopTime>7:30</PopTime><PopTime2>pm</PopTime2> Dinner & Dancing</NormalWords>
-                    <NormalWords><PopTime>11</PopTime><PopTime2>pm</PopTime2> Send-Off</NormalWords>
                     <Attire>Cocktail Attire</Attire>
                     </InnerBox>
                 </Box>
