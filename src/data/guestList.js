@@ -77,7 +77,7 @@ export const guestList = {
         ["Neil Whitman","Kirby Whitman"],
         ["Christian Murrilo","Lauren Murrilo"],
         ["Justin Stoks","Dysen Stoks"],
-        ["Harrison Wobek"],
+        ["Harrison Wobeck"],
         ["Brie Penaherrera"],
         ["Steven Falusi","Brenda Falusi"],
         ["Walter Yonkaitis","Cathy Yonkaitis","Anna Yonkaitis","Mary Yonkaitis"],
