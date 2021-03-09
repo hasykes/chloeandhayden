@@ -36,7 +36,7 @@ export const guestList = {
         ["George Payne","Mary Margaret Payne"],
         ["Ronak Patel","Janki Vansia"],
         ["Benjamin Verellen","Bijal Patel"],
-        ["John McCartney"],
+        ["John McCartney","Kelsey Cook"],
         ["Patrick Welch","Fiona Shea"],
         ["Hunter Upton","Carly Upton"],
         ["Pharan Evans","Stephen Sealy"],
